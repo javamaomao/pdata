@@ -8,6 +8,7 @@ class PdataApplication
 
 fun main(args: Array<String>) {
     println("helloworld")
+    println("xxxx")
     runApplication<PdataApplication>(*args)
 
 }
