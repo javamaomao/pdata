@@ -1,6 +1,4 @@
-package com.gloyray.mgr.mapper
-
-import com.github.pagehelper.Page
+package com.jifenkeji.pdata.mapper
 
 import java.io.Serializable
 
