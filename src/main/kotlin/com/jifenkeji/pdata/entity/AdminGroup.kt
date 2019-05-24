@@ -1,4 +1,4 @@
-package com.gloyray.mgr.entity
+package com.jifenkeji.pdata.entity
 
 import java.io.Serializable
 

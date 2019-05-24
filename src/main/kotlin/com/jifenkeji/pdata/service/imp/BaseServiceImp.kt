@@ -2,9 +2,8 @@ package com.gloyray.mgr.service.impl
 
 import com.github.pagehelper.Page
 import com.github.pagehelper.PageHelper
-import com.github.pagehelper.PageInfo
 import com.gloyray.mgr.service.BaseService
-import com.gloyray.mgr.mapper.BaseMapper
+import com.jifenkeji.pdata.mapper.BaseMapper
 import org.springframework.stereotype.Service
 
 import java.io.Serializable

@@ -1,7 +1,7 @@
 package com.jifenkeji.pdata.service.imp
 
-import com.gloyray.mgr.entity.Admin
 import com.gloyray.mgr.service.impl.BaseServiceImpl
+import com.jifenkeji.pdata.entity.Admin
 import com.jifenkeji.pdata.mapper.AdminGroupMapper
 import com.jifenkeji.pdata.mapper.AdminMapper
 import com.jifenkeji.pdata.service.AdminService

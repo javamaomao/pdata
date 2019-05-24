@@ -1,4 +1,4 @@
-package com.gloyray.mgr.config
+package com.jifenkeji.pdata.config
 
 import org.springframework.cache.annotation.CachingConfigurerSupport
 import org.springframework.context.annotation.Configuration

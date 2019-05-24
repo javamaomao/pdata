@@ -1,6 +1,6 @@
 package com.jifenkeji.pdata.mapper
 
-import com.gloyray.mgr.entity.Admin
+import com.jifenkeji.pdata.entity.Admin
 import org.apache.ibatis.jdbc.SQL
 
 class AdminSqlProvider {

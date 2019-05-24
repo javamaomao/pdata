@@ -1,6 +1,5 @@
 package com.jifenkeji.pdata.mapper
 
-import com.gloyray.mgr.mapper.BaseMapper
 import com.jifenkeji.pdata.entity.Test
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Result

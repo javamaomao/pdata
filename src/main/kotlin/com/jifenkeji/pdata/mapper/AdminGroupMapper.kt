@@ -1,7 +1,6 @@
 package com.jifenkeji.pdata.mapper
 
-import com.gloyray.mgr.entity.AdminGroup
-import com.gloyray.mgr.mapper.BaseMapper
+import com.jifenkeji.pdata.entity.AdminGroup
 import org.apache.ibatis.annotations.*
 import org.apache.ibatis.type.JdbcType
 

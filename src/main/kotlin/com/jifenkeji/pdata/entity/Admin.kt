@@ -1,4 +1,4 @@
-package com.gloyray.mgr.entity
+package com.jifenkeji.pdata.entity
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails

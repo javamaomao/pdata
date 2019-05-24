@@ -1,4 +1,4 @@
-package com.gloyray.mgr.utils
+package com.jifenkeji.pdata.utils
 
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.util.DigestUtils
