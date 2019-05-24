@@ -4,8 +4,8 @@ server:
 spring:
   mvc:
     static-path-pattern: /**
-  #  resources:
-  #    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
@@ -36,19 +36,6 @@ spring:
     filters: stat,wall,log4j
     # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-
-  thymeleaf:
-    #前缀，也就是模板存放的路径
-    #prefix=classpath:/web/
-    #编码格式
-    encoding: UTF-8
-    #是否开启缓存
-    cache: false
-    #后缀
-    suffix: .html
-    #设置不严格的html
-    mode: LEGACYHTML5
-
 
   #  freemarker:
   #    #前缀，也就是模板存放的路径

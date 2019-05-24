@@ -39,8 +39,8 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
                 .disable()  //关闭跨站检测
                 .authorizeRequests()    //验证策略
                 .antMatchers("/css/**","/image/*","/js/*").permitAll()
-                .antMatchers("/admin/**").hasAnyRole("ADMIN") // #6
-                .antMatchers("/**").authenticated()    //需要验证
+                .antMatchers("/admin/**").permitAll() // #hasAnyRole("ADMIN")
+                .antMatchers("/**").permitAll()    //需要验证authenticated
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
