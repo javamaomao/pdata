@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.7.RELEASE"
     kotlin("jvm") version "1.3.31"
     kotlin("plugin.spring") version "1.3.31"
+    id("com.thinkimi.gradle.MybatisGenerator") version "2.0" //thinkimi提供的 gradle mybatis generator插件
 }
 
 group = "com.jifenkeji"
@@ -30,6 +31,10 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.kafka:spring-kafka-test")
     testImplementation("org.springframework.security:spring-security-test")
+    // 分页插件
+    implementation("com.github.pagehelper:pagehelper-spring-boot-starter:1.2.5")
+    // 阿里巴巴数据库连接池
+    implementation("com.alibaba:druid:1.0.25")
 }
 
 tasks.withType<KotlinCompile> {

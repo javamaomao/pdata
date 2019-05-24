@@ -4,6 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
+@MapperScan(basePackages = ["com.jifenkeji.pdata.mapper"])
 class PdataApplication
 
 fun main(args: Array<String>) {
