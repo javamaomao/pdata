@@ -106,7 +106,7 @@ $(document).ready(function() {
     });
 
     // check active menu
-    $SIDEBAR_MENU.find('a[href="' + CURRENT_URL + '"]').parent('li').addClass('current-page');
+    $SIDEBAR_MENU.find('a[href="/' + CURRENT_URL + '"]').parent('li').addClass('current-page');
 
     $SIDEBAR_MENU.find('a').filter(function () {
         return this.href == CURRENT_URL;

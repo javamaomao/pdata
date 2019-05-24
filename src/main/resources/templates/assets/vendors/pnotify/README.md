@@ -30,7 +30,7 @@ So here's how you'd include them on your page:
 
 ```html
 <script type="text/javascript" src="pnotify.custom.min.js"></script>
-<link href="pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+<link href="/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 ```
 
 Now you can use PNotify like this:

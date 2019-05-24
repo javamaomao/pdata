@@ -72,7 +72,7 @@
         less:
 
         ```html
-        <link rel="stylesheet/less" type="text/css" href="bootstrap-progressbar.less">
+        <link rel="stylesheet/less" type="text/css" href="/bootstrap-progressbar.less">
         <script src="less.js" type="text/javascript"></script>
         ```
 
@@ -84,7 +84,7 @@
         css:
 
         ```html
-        <link rel="stylesheet" type="text/css" href="bootstrap-progressbar.css">
+        <link rel="stylesheet" type="text/css" href="/bootstrap-progressbar.css">
         ```
 
         you can find your needed css, less or scss files inside the specific subdirectories.

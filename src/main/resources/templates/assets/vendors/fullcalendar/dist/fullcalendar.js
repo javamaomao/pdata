@@ -6187,7 +6187,7 @@ DayGrid.mixin({
 		
 		return '<a class="' + classes.join(' ') + '"' +
 				(event.url ?
-					' href="' + htmlEscape(event.url) + '"' :
+					' href="/' + htmlEscape(event.url) + '"' :
 					''
 					) +
 				(skinCss ?
@@ -7560,7 +7560,7 @@ TimeGrid.mixin({
 
 		return '<a class="' + classes.join(' ') + '"' +
 			(event.url ?
-				' href="' + htmlEscape(event.url) + '"' :
+				' href="/' + htmlEscape(event.url) + '"' :
 				''
 				) +
 			(skinCss ?

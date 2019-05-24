@@ -15,7 +15,7 @@ Active committers and contributors are invited to introduce yourself and request
 
 ## Building and Testing
 
-Chart.js uses <a href="https://gulpjs.com/" target="_blank">gulp</a> to build the library into a single JavaScript file.
+Chart.js uses <a href="/https://gulpjs.com/" target="_blank">gulp</a> to build the library into a single JavaScript file.
 
 Firstly, we need to ensure development dependencies are installed. With node and npm installed, after cloning the Chart.js repo to a local directory, and navigating to that directory in the command line, we can run the following:
 
@@ -24,7 +24,7 @@ Firstly, we need to ensure development dependencies are installed. With node and
 > npm install -g gulp-cli
 ```
 
-This will install the local development dependencies for Chart.js, along with a CLI for the JavaScript task runner <a href="https://gulpjs.com/" target="_blank">gulp</a>.
+This will install the local development dependencies for Chart.js, along with a CLI for the JavaScript task runner <a href="/https://gulpjs.com/" target="_blank">gulp</a>.
 
 The following commands are now available from the repository root:
 
@@ -64,7 +64,7 @@ When a test fails, the expected and actual images are shown. If you'd like to se
 
 ## Bugs and Issues
 
-Please report these on the GitHub page - at <a href="https://github.com/chartjs/Chart.js" target="_blank">github.com/chartjs/Chart.js</a>. Please do not use issues for support requests. For help using Chart.js, please take a look at the [`chartjs`](https://stackoverflow.com/questions/tagged/chartjs) tag on Stack Overflow.
+Please report these on the GitHub page - at <a href="/https://github.com/chartjs/Chart.js" target="_blank">github.com/chartjs/Chart.js</a>. Please do not use issues for support requests. For help using Chart.js, please take a look at the [`chartjs`](https://stackoverflow.com/questions/tagged/chartjs) tag on Stack Overflow.
 
 Well structured, detailed bug reports are hugely valuable for the project.
 

@@ -1,14 +1,14 @@
 ![ion.rangeSlider](_tmp/logo-ion-range-slider.png)
 
-> English description | <a href="readme.ru.md">Описание на русском</a>
+> English description | <a href="/readme.ru.md">Описание на русском</a>
 
 Ion.RangeSlider. Is an easy, flexible and responsive range slider with tons of options.
 
 ***
 
 * Version: 2.2.0 | *Version 3.x is under development now*
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/ion.rangeSlider-2.2.0.zip">Download ZIP</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/en.html">Project page and demos</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/ion.rangeSlider-2.2.0.zip">Download ZIP</a>
 
 [![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
 
@@ -17,7 +17,7 @@ Ion.RangeSlider. Is an easy, flexible and responsive range slider with tons of o
 * Supports events and public methods, has flexible settings, can be completely altered with CSS
 * Cross-browser: Google Chrome, Mozilla Firefox 3.6+, Opera 12+, Safari 5+, Internet Explorer 8+
 * Ion.RangeSlider supports touch-devices (iPhone, iPad, Nexus, etc.).
-* Ion.RangeSlider freely distributed under terms of <a href="http://ionden.com/a/plugins/licence.html" target="_blank">MIT licence</a>.
+* Ion.RangeSlider freely distributed under terms of <a href="/http://ionden.com/a/plugins/licence.html" target="_blank">MIT licence</a>.
 * With this plugin you will be able to build beautiful range sliders, like this:
 
 ![ion.rangeSlider](http://ionden.com/a/plugins/ion.rangeSlider/static/img/ion-range-slider.png)
@@ -44,17 +44,17 @@ Ion.RangeSlider. Is an easy, flexible and responsive range slider with tons of o
 
 ## Demos
 
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo.html" class="switch__item">Basic demo</a>
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_advanced.html" class="switch__item">Advanced demo</a>
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html" class="switch__item">Interactions demo</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/demo.html" class="switch__item">Basic demo</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/demo_advanced.html" class="switch__item">Advanced demo</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html" class="switch__item">Interactions demo</a>
 
 
 ## GitHub
 
-* <a href="https://github.com/IonDen/ion.rangeSlider">GitHub page</a>
+* <a href="/https://github.com/IonDen/ion.rangeSlider">GitHub page</a>
 
 
-### <a href="history.md">Update history</a>
+### <a href="/history.md">Update history</a>
 
 ***
 

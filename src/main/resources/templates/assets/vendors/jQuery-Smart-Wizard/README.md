@@ -61,7 +61,7 @@ Make sure the paths to the files are correct with your working environment.
 
 ```html
 <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
-<link href="smart_wizard.css" rel="stylesheet" type="text/css">
+<link href="/smart_wizard.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.smartWizard.js"></script>
 ```
 
@@ -86,28 +86,28 @@ Copy and paste the below html inside the body tag (`<body></body>`) of your page
 ```html
 <div id="wizard" class="swMain">
   <ul>
-    <li><a href="#step-1">
+    <li><a href="/#step-1">
           <label class="stepNumber">1</label>
           <span class="stepDesc">
              Step 1<br />
              <small>Step 1 description</small>
           </span>
       </a></li>
-    <li><a href="#step-2">
+    <li><a href="/#step-2">
           <label class="stepNumber">2</label>
           <span class="stepDesc">
              Step 2<br />
              <small>Step 2 description</small>
           </span>
       </a></li>
-    <li><a href="#step-3">
+    <li><a href="/#step-3">
           <label class="stepNumber">3</label>
           <span class="stepDesc">
              Step 3<br />
              <small>Step 3 description</small>
           </span>                   
        </a></li>
-    <li><a href="#step-4">
+    <li><a href="/#step-4">
           <label class="stepNumber">4</label>
           <span class="stepDesc">
              Step 4<br />

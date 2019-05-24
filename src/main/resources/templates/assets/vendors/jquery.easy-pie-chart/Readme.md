@@ -155,7 +155,7 @@ You can pass these options to the initialize function to set a custom look and f
     <tr>
         <td><strong>easing</strong></td>
         <td>defaultEasing</td>
-        <td>Easing function or string with the name of a <a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">jQuery easing function</a></td>
+        <td>Easing function or string with the name of a <a href="/http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">jQuery easing function</a></td>
     </tr>
 </table>
 

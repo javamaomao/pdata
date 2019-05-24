@@ -3347,7 +3347,7 @@ define(["eve"], function(eve) {
      | "M10,20L30,40"
      * Here we can see two commands: “M”, with arguments `(10, 20)` and “L” with arguments `(30, 40)`. Upper case letter mean command is absolute, lower case—relative.
      *
-     # <p>Here is short list of commands available, for more details see <a href="http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of a path's data attribute's format are described in the SVG specification.">SVG path string format</a>.</p>
+     # <p>Here is short list of commands available, for more details see <a href="/http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of a path's data attribute's format are described in the SVG specification.">SVG path string format</a>.</p>
      # <table><thead><tr><th>Command</th><th>Name</th><th>Parameters</th></tr></thead><tbody>
      # <tr><td>M</td><td>moveto</td><td>(x y)+</td></tr>
      # <tr><td>Z</td><td>closepath</td><td>(none)</td></tr>
@@ -3359,7 +3359,7 @@ define(["eve"], function(eve) {
      # <tr><td>Q</td><td>quadratic Bézier curveto</td><td>(x1 y1 x y)+</td></tr>
      # <tr><td>T</td><td>smooth quadratic Bézier curveto</td><td>(x y)+</td></tr>
      # <tr><td>A</td><td>elliptical arc</td><td>(rx ry x-axis-rotation large-arc-flag sweep-flag x y)+</td></tr>
-     # <tr><td>R</td><td><a href="http://en.wikipedia.org/wiki/Catmull–Rom_spline#Catmull.E2.80.93Rom_spline">Catmull-Rom curveto</a>*</td><td>x1 y1 (x y)+</td></tr></tbody></table>
+     # <tr><td>R</td><td><a href="/http://en.wikipedia.org/wiki/Catmull–Rom_spline#Catmull.E2.80.93Rom_spline">Catmull-Rom curveto</a>*</td><td>x1 y1 (x y)+</td></tr></tbody></table>
      * * “Catmull-Rom curveto” is a not standard SVG command and added in 2.0 to make life easier.
      * Note: there is a special case when path consist of just three commands: “M10,10R…z”. In this case path will smoothly connects to its beginning.
      > Usage
@@ -4026,7 +4026,7 @@ define(["eve"], function(eve) {
      #     <li>“elastic”</li>
      #     <li>“bounce”</li>
      # </ul>
-     # <p>See also <a href="http://raphaeljs.com/easing.html">Easing demo</a>.</p>
+     # <p>See also <a href="/http://raphaeljs.com/easing.html">Easing demo</a>.</p>
     \*/
     var ef = R.easing_formulas = {
         linear: function (n) {
@@ -5078,7 +5078,7 @@ define(["eve"], function(eve) {
      **
      * Adds given font to the registered set of fonts for Raphaël. Should be used as an internal call from within Cufón’s font file.
      * Returns original parameter, so it could be used with chaining.
-     # <a href="http://wiki.github.com/sorccu/cufon/about">More about Cufón and how to convert your font form TTF, OTF, etc to JavaScript file.</a>
+     # <a href="/http://wiki.github.com/sorccu/cufon/about">More about Cufón and how to convert your font form TTF, OTF, etc to JavaScript file.</a>
      **
      > Parameters
      **

@@ -34,7 +34,7 @@ For older browsers that support [data URI](http://caniuse.com/datauri), you can 
 do the following :
 
 ```js
-location.href="data:application/zip;base64," + zip.generate({type:"base64"});
+location.href="/data:application/zip;base64," + zip.generate({type:"base64"});
 ```
 
 The biggest issue here is that the filenames are very awkward, Firefox

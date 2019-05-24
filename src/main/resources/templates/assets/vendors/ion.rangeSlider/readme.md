@@ -1,21 +1,21 @@
 ![ion.rangeSlider](_tmp/logo-ion-range-slider.png)
 
-> English description | <a href="readme.ru.md">Описание на русском</a>
+> English description | <a href="/readme.ru.md">Описание на русском</a>
 
 Ion.RangeSlider. Is an easy, flexible and responsive range slider with tons of options.
 
 ***
 
 * Version: 2.3.0 | *Version 3.x is under development now*
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/ion.rangeSlider-2.3.0.zip">Download ZIP</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/en.html">Project page and demos</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/ion.rangeSlider-2.3.0.zip">Download ZIP</a>
 
 ## Description
 * Ion.RangeSlider — cool, comfortable, responsive and easily customizable range slider
 * Supports events and public methods, has flexible settings, can be completely altered with CSS
 * Cross-browser: Google Chrome, Mozilla Firefox 3.6+, Opera 12+, Safari 5+, Internet Explorer 8+
 * Ion.RangeSlider supports touch-devices (iPhone, iPad, Nexus, etc.).
-* Ion.RangeSlider freely distributed under terms of <a href="http://ionden.com/a/plugins/licence.html" target="_blank">MIT licence</a>.
+* Ion.RangeSlider freely distributed under terms of <a href="/http://ionden.com/a/plugins/licence.html" target="_blank">MIT licence</a>.
 * With this plugin you will be able to build beautiful range sliders, like this:
 
 ![ion.rangeSlider](http://ionden.com/a/plugins/ion.rangeSlider/static/img/ion-range-slider.png)
@@ -42,14 +42,14 @@ Ion.RangeSlider. Is an easy, flexible and responsive range slider with tons of o
 
 ## Demos
 
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo.html" class="switch__item">Basic demo</a>
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_advanced.html" class="switch__item">Advanced demo</a>
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html" class="switch__item">Interactions demo</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/demo.html" class="switch__item">Basic demo</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/demo_advanced.html" class="switch__item">Advanced demo</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html" class="switch__item">Interactions demo</a>
 
 
 ## Dependencies
 
-* <a href="http://jquery.com/" target="_blank">jQuery 1.8.x+</a>
+* <a href="/http://jquery.com/" target="_blank">jQuery 1.8.x+</a>
 
 
 ## Usage
@@ -87,10 +87,10 @@ $("#example_id").ionRangeSlider();
 ## Demo for juniors
 
 If your are new in web development and you are not sure how to correctly install the plugin to your web-page, please download
-<a href="http://ionden.com/a/plugins/ion.rangeSlider/ionRangeSliderDemo.zip" class="button">this demo example</a>
+<a href="/http://ionden.com/a/plugins/ion.rangeSlider/ionRangeSliderDemo.zip" class="button">this demo example</a>
 
 
-## <a href="http://jsfiddle.net/IonDen/qv6yrjrv/" target="_blank">Experiments playground</a>
+## <a href="/http://jsfiddle.net/IonDen/qv6yrjrv/" target="_blank">Experiments playground</a>
 
 Here you can find bunch of advanced JSFIDDLE demos with different, non-standart use cases:
 * [Reverse or RTL](http://jsfiddle.net/IonDen/gbmszmp4/)
@@ -255,14 +255,14 @@ slider.destroy();
 
 ## One more look on demos
 
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo.html" class="switch__item">Basic demo</a>
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_advanced.html" class="switch__item">Advanced demo</a>
-* <a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html" class="switch__item">Interactions demo</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/demo.html" class="switch__item">Basic demo</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/demo_advanced.html" class="switch__item">Advanced demo</a>
+* <a href="/http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html" class="switch__item">Interactions demo</a>
 
 All plugins options are covered in demos.
 
 
-### <a href="history.md">Update history</a>
+### <a href="/history.md">Update history</a>
 
 ***
 
