@@ -2,7 +2,6 @@ server:
   port: 8081
 # 驱动配置信息
 spring:
-
   mvc:
     static-path-pattern: /**
   #  resources:
