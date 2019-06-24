@@ -1,3 +1,11 @@
+// ┌────────────────────────────────────────────────────────────────────┐ \\
+// │ Raphaël @@VERSION - JavaScript Vector Library                      │ \\
+// ├────────────────────────────────────────────────────────────────────┤ \\
+// │ Core Module                                                        │ \\
+// ├────────────────────────────────────────────────────────────────────┤ \\
+// │ Licensed under the MIT (http://raphaeljs.com/license.html) license.│ \\
+// └────────────────────────────────────────────────────────────────────┘ \\
+
 define(["eve"], function(eve) {
 
     /*\
@@ -67,7 +75,7 @@ define(["eve"], function(eve) {
             }
         }
     }
-    R.version = "2.2.0";
+    R.version = "@@VERSION";
     R.eve = eve;
     var loaded,
         separator = /[, ]+/,
@@ -122,8 +130,7 @@ define(["eve"], function(eve) {
         appendChild = "appendChild",
         apply = "apply",
         concat = "concat",
-        //taken from Modernizr touch test: https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js#L40
-        supportsTouch = ('ontouchstart' in window) || window.TouchEvent || window.DocumentTouch && document instanceof DocumentTouch,
+        supportsTouch = ('ontouchstart' in g.win) || g.win.DocumentTouch && g.doc instanceof DocumentTouch, //taken from Modernizr touch test
         E = "",
         S = " ",
         Str = String,
@@ -196,8 +203,7 @@ define(["eve"], function(eve) {
             transform: "",
             width: 0,
             x: 0,
-            y: 0,
-            "class": ""
+            y: 0
         },
         availableAnimAttrs = R._availableAnimAttrs = {
             blur: nu,
@@ -370,6 +376,7 @@ define(["eve"], function(eve) {
     \*/
     R.fn = paperproto = Paper.prototype = R.prototype;
     R._id = 0;
+    R._oid = 0;
     /*\
      * Raphael.is
      [ method ]
@@ -1138,17 +1145,7 @@ define(["eve"], function(eve) {
         }
         data.toString = R._path2string;
         return data;
-    }, this, function(elem) {
-        if (!elem) return elem;
-        var newData = [];
-        for (var i = 0; i < elem.length; i++) {
-            var newLevel = [];
-            for (var j = 0; j < elem[i].length; j++) {
-                newLevel.push(elem[i][j]);
-            }
-            newData.push(newLevel);
-        }
-      return newData; } );
+    });
     // PATHS
     var paths = function (ps) {
         var p = paths.ps = paths.ps || {};
@@ -2832,7 +2829,7 @@ define(["eve"], function(eve) {
      * Raphael.el
      [ property (object) ]
      **
-     * You can add your own method to elements. This is useful when you want to hack default functionality or
+     * You can add your own method to elements. This is usefull when you want to hack default functionality or
      * want to wrap some common transformation or attributes in one method. In difference to canvas methods,
      * you can redefine element method at any time. Expending element methods wouldn’t affect set.
      > Usage
@@ -3079,7 +3076,7 @@ define(["eve"], function(eve) {
      * Element.data
      [ method ]
      **
-     * Adds or retrieves given value associated with given key.
+     * Adds or retrieves given value asociated with given key.
      **
      * See also @Element.removeData
      > Parameters
@@ -3131,7 +3128,7 @@ define(["eve"], function(eve) {
     \*/
     elproto.removeData = function (key) {
         if (key == null) {
-            delete eldata[this.id];
+            eldata[this.id] = {};
         } else {
             eldata[this.id] && delete eldata[this.id][key];
         }
@@ -3188,7 +3185,7 @@ define(["eve"], function(eve) {
      - mcontext (object) #optional context for moving handler
      - scontext (object) #optional context for drag start handler
      - econtext (object) #optional context for drag end handler
-     * Additionally following `drag` events will be triggered: `drag.start.<id>` on start,
+     * Additionaly following `drag` events will be triggered: `drag.start.<id>` on start,
      * `drag.end.<id>` on end and `drag.move.<id>` on every move. When element will be dragged over another element
      * `drag.over.<id>` will be fired as well.
      *
@@ -3233,7 +3230,7 @@ define(["eve"], function(eve) {
             onstart && eve.on("raphael.drag.start." + this.id, onstart);
             onmove && eve.on("raphael.drag.move." + this.id, onmove);
             onend && eve.on("raphael.drag.end." + this.id, onend);
-            eve("raphael.drag.start." + this.id, start_scope || move_scope || this, this._drag.x, this._drag.y, e);
+            eve("raphael.drag.start." + this.id, start_scope || move_scope || this, e.clientX + scrollX, e.clientY + scrollY, e);
         }
         this._drag = {};
         draggable.push({el: this, start: start});
@@ -3347,7 +3344,7 @@ define(["eve"], function(eve) {
      | "M10,20L30,40"
      * Here we can see two commands: “M”, with arguments `(10, 20)` and “L” with arguments `(30, 40)`. Upper case letter mean command is absolute, lower case—relative.
      *
-     # <p>Here is short list of commands available, for more details see <a href="/http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of a path's data attribute's format are described in the SVG specification.">SVG path string format</a>.</p>
+     # <p>Here is short list of commands available, for more details see <a href="http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of a path's data attribute's format are described in the SVG specification.">SVG path string format</a>.</p>
      # <table><thead><tr><th>Command</th><th>Name</th><th>Parameters</th></tr></thead><tbody>
      # <tr><td>M</td><td>moveto</td><td>(x y)+</td></tr>
      # <tr><td>Z</td><td>closepath</td><td>(none)</td></tr>
@@ -3359,7 +3356,7 @@ define(["eve"], function(eve) {
      # <tr><td>Q</td><td>quadratic Bézier curveto</td><td>(x1 y1 x y)+</td></tr>
      # <tr><td>T</td><td>smooth quadratic Bézier curveto</td><td>(x y)+</td></tr>
      # <tr><td>A</td><td>elliptical arc</td><td>(rx ry x-axis-rotation large-arc-flag sweep-flag x y)+</td></tr>
-     # <tr><td>R</td><td><a href="/http://en.wikipedia.org/wiki/Catmull–Rom_spline#Catmull.E2.80.93Rom_spline">Catmull-Rom curveto</a>*</td><td>x1 y1 (x y)+</td></tr></tbody></table>
+     # <tr><td>R</td><td><a href="http://en.wikipedia.org/wiki/Catmull–Rom_spline#Catmull.E2.80.93Rom_spline">Catmull-Rom curveto</a>*</td><td>x1 y1 (x y)+</td></tr></tbody></table>
      * * “Catmull-Rom curveto” is a not standard SVG command and added in 2.0 to make life easier.
      * Note: there is a special case when path consist of just three commands: “M10,10R…z”. In this case path will smoothly connects to its beginning.
      > Usage
@@ -4026,7 +4023,7 @@ define(["eve"], function(eve) {
      #     <li>“elastic”</li>
      #     <li>“bounce”</li>
      # </ul>
-     # <p>See also <a href="/http://raphaeljs.com/easing.html">Easing demo</a>.</p>
+     # <p>See also <a href="http://raphaeljs.com/easing.html">Easing demo</a>.</p>
     \*/
     var ef = R.easing_formulas = {
         linear: function (n) {
@@ -5078,7 +5075,7 @@ define(["eve"], function(eve) {
      **
      * Adds given font to the registered set of fonts for Raphaël. Should be used as an internal call from within Cufón’s font file.
      * Returns original parameter, so it could be used with chaining.
-     # <a href="/http://wiki.github.com/sorccu/cufon/about">More about Cufón and how to convert your font form TTF, OTF, etc to JavaScript file.</a>
+     # <a href="http://wiki.github.com/sorccu/cufon/about">More about Cufón and how to convert your font form TTF, OTF, etc to JavaScript file.</a>
      **
      > Parameters
      **

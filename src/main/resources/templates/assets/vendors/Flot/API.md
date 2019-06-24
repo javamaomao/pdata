@@ -198,7 +198,7 @@ clickable:
 ```js
 labelFormatter: function(label, series) {
     // series is the series object for the label
-    return '<a href="/#' + label + '">' + label + '</a>';
+    return '<a href="#' + label + '">' + label + '</a>';
 }
 ```
 

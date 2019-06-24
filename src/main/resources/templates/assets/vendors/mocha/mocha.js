@@ -2574,8 +2574,8 @@ exports = module.exports = HTML;
 
 var statsTemplate = '<ul id="mocha-stats">'
   + '<li class="progress"><canvas width="40" height="40"></canvas></li>'
-  + '<li class="passes"><a href="/#">passes:</a> <em>0</em></li>'
-  + '<li class="failures"><a href="/#">failures:</a> <em>0</em></li>'
+  + '<li class="passes"><a href="#">passes:</a> <em>0</em></li>'
+  + '<li class="failures"><a href="#">failures:</a> <em>0</em></li>'
   + '<li class="duration">duration: <em>0</em>s</li>'
   + '</ul>';
 
@@ -2646,7 +2646,7 @@ function HTML(runner, root) {
 
     // suite
     var url = self.suiteURL(suite);
-    var el = fragment('<li class="suite"><h1><a href="/%s">%s</a></h1></li>', url, escape(suite.title));
+    var el = fragment('<li class="suite"><h1><a href="%s">%s</a></h1></li>', url, escape(suite.title));
 
     // container
     stack[0].appendChild(el);
@@ -2677,11 +2677,11 @@ function HTML(runner, root) {
     // test
     if ('passed' == test.state) {
       var url = self.testURL(test);
-      var el = fragment('<li class="test pass %e"><h2>%e<span class="duration">%ems</span> <a href="/%s" class="replay">‣</a></h2></li>', test.speed, test.title, test.duration, url);
+      var el = fragment('<li class="test pass %e"><h2>%e<span class="duration">%ems</span> <a href="%s" class="replay">‣</a></h2></li>', test.speed, test.title, test.duration, url);
     } else if (test.pending) {
       var el = fragment('<li class="test pass pending"><h2>%e</h2></li>', test.title);
     } else {
-      var el = fragment('<li class="test fail"><h2>%e <a href="/?grep=%e" class="replay">‣</a></h2></li>', test.title, encodeURIComponent(test.fullTitle()));
+      var el = fragment('<li class="test fail"><h2>%e <a href="?grep=%e" class="replay">‣</a></h2></li>', test.title, encodeURIComponent(test.fullTitle()));
       var str = test.err.stack || test.err.toString();
 
       // FF / Opera do not add the message

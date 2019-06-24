@@ -1,6 +1,6 @@
 {
     "name": "ion.rangeSlider",
-    "version": "2.3.0",
+    "version": "2.1.4",
     "homepage": "https://github.com/IonDen/ion.rangeSlider",
     "authors": [
         {
@@ -16,8 +16,8 @@
     },
     "main": [
         "js/ion.rangeSlider.js",
-        "/css/ion.rangeSlider.css",
-        "/css/ion.rangeSlider.skinFlat.css",
+        "css/ion.rangeSlider.css",
+        "css/ion.rangeSlider.skinFlat.css",
         "img/sprite-skin-flat.png"
     ],
     "dependencies": {

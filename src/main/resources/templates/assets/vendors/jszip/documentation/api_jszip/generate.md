@@ -83,7 +83,7 @@ saveAs(content, "hello.zip");
 
 ```js
 var content = zip.generate({type:"base64"});
-location.href="/data:application/zip;base64,"+content;
+location.href="data:application/zip;base64,"+content;
 ```
 
 ```js

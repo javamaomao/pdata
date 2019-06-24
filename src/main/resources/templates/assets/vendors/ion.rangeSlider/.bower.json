@@ -1,6 +1,6 @@
 {
   "name": "ion.rangeSlider",
-  "version": "2.3.0",
+  "version": "2.1.4",
   "homepage": "https://github.com/IonDen/ion.rangeSlider",
   "authors": [
     {
@@ -16,8 +16,8 @@
   },
   "main": [
     "js/ion.rangeSlider.js",
-    "/css/ion.rangeSlider.css",
-    "/css/ion.rangeSlider.skinFlat.css",
+    "css/ion.rangeSlider.css",
+    "css/ion.rangeSlider.skinFlat.css",
     "img/sprite-skin-flat.png"
   ],
   "dependencies": {
@@ -38,11 +38,11 @@
     "PSD",
     "ion-rangeSlider.jquery.json"
   ],
-  "_release": "2.3.0",
+  "_release": "2.1.4",
   "_resolution": {
     "type": "version",
-    "tag": "2.3.0",
-    "commit": "c98c10d3d360aa52e997bb8e4fd371c958f78e4b"
+    "tag": "2.1.4",
+    "commit": "b013f67882be811599580a76cf65074dff9f8b5a"
   },
   "_source": "https://github.com/IonDen/ion.rangeSlider.git",
   "_target": "^2.1.3",

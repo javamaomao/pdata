@@ -38,16 +38,16 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
                 .csrf() //跨站
                 .disable()  //关闭跨站检测
                 .authorizeRequests()    //验证策略
-                .antMatchers("/css/**","/image/*","/js/*").permitAll()
+                .antMatchers("/assets/**","/css/**","/image/*","/js/*").permitAll()
                 .antMatchers("/admin/**").permitAll() // #hasAnyRole("ADMIN")
-                .antMatchers("/**").permitAll()    //需要验证authenticated
+                .antMatchers("/**").authenticated()    //需要验证authenticated
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")// 设置登录页面
                 .loginProcessingUrl("/login") // 自定义的登录接口
                 .defaultSuccessUrl("/")
-                .failureUrl("/loginFailure")
+                //.failureUrl("/loginFailure")
                 .permitAll()
                 .and()
                 .logout().logoutUrl("/logout")

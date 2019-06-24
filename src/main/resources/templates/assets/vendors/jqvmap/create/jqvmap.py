@@ -1,15 +1,15 @@
-import copy
-import csv
+import sys
 import json
-import os
+import csv
+import shapely.wkb
 import shapely.geometry
 import shapely.ops
-import shapely.wkb
-import sys
-from booleano.operations import Variable
-from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind
+import os
+import copy
 from osgeo import ogr
 from osgeo import osr
+from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind
+from booleano.operations import Variable
 
 
 class JQVMap:

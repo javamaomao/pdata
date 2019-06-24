@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>私域数据 | </title>
+
+    <!-- Bootstrap -->
+    <link href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="/assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="/assets/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="/assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/assets/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div th:replace="/common::left_col"></div>
+
+        <!-- top navigation -->
+        <div th:replace="/common::top_nav"></div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>产品码招募活动管理</h3>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+
+            <div class="row">
+              <div class="col-md-12">
+
+                <!-- form date pickers -->
+                <div class="x_panel" style="">
+                  <div class="x_title">
+                    <h2>产品招募活动添加及筛选<small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/#">设置</a>
+                          </li>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <div class="col-md-2 col-sm-2 col-xs-2">
+                      <button type="submit" class="btn btn-success">+创建新活动</button>
+                    </div>
+                    <div class="col-md-10 col-sm-10 col-xs-10">
+                      <div class="row" style="overflow: auto">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">按产品/品类查询</label>
+                            <div class="control-group col-md-9 col-sm-9 col-xs-12">
+                              <div class="controls">
+                                <div class="input-prepend input-group">
+                                  <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                                  <input type="text" name="reservation-time" id="reservation-time" class="form-control" value="01/01/2016 - 01/25/2016" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12">按产品/品类查询</label>
+                            <div class="col-md-5 col-sm-5 col-xs-6">
+                              <select class="form-control">
+                                <option>Choose option</option>
+                                <option>Option one</option>
+                                <option>Option two</option>
+                                <option>Option three</option>
+                                <option>Option four</option>
+                              </select>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-xs-6">
+                              <select class="form-control">
+                                <option>Choose option</option>
+                                <option>Option one</option>
+                                <option>Option two</option>
+                                <option>Option three</option>
+                                <option>Option four</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                        <button type="submit" class="btn btn-success">查询</button>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="row" style="overflow: auto">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">按活动名称模糊查询<span class="required">*</span>
+                            </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                              <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <label class="control-label col-md-2 col-sm-2 col-xs-12">按活动状态查询</label>
+                            <div class="col-md-10 col-sm-10 col-xs-6">
+                              <select class="form-control">
+                                <option>Choose option</option>
+                                <option>Option one</option>
+                                <option>Option two</option>
+                                <option>Option three</option>
+                                <option>Option four</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                          <button type="submit" class="btn btn-success">导出</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /form datepicker -->
+
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="clearfix"></div>
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>产品招募活动添加及筛选 <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/#">设置</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content">
+                    <div class="table-responsive">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="clearfix"></div>
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>产品招募活动列表 <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/#">设置</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content">
+                    <div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                        <tr class="headings">
+                          <th>
+                            <input type="checkbox" id="check-all" class="flat">
+                          </th>
+                          <th class="column-title">创建时间 </th>
+                          <th class="column-title">活动类型</th>
+                          <th class="column-title">活动名称</th>
+                          <th class="column-title">活动时间</th>
+                          <th class="column-title">状态</th>
+                          <th class="column-title no-link last"><span class="nobr">操作</span>
+                          </th>
+                          <th class="bulk-actions" colspan="6">
+                            <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                          </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr class="even pointer">
+                          <td class="a-center ">
+                            <input type="checkbox" class="flat" name="table_records">
+                          </td>
+                          <td class=" ">121000040</td>
+                          <td class=" ">May 23, 2014 11:47:56 PM </td>
+                          <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i></td>
+                          <td class=" ">John Blank L</td>
+                          <td class=" ">Paid</td>
+                          <td class=" last"><a href="/#">View</a>
+                          </td>
+                        </tr>
+                        <tr class="odd pointer">
+                          <td class="a-center ">
+                            <input type="checkbox" class="flat" name="table_records">
+                          </td>
+                          <td class=" ">121000039</td>
+                          <td class=" ">May 23, 2014 11:30:12 PM</td>
+                          <td class=" ">121000208 <i class="success fa fa-long-arrow-up"></i>
+                          </td>
+                          <td class=" ">John Blank L</td>
+                          <td class=" ">Paid</td>
+                          <td class=" last"><a href="/#">View</a>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+
+        <!-- footer content -->
+        <footer th:replace="/common::footer"></footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/assets/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="/assets/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/assets/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="/assets/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="/assets/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="/assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="/assets/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="/assets/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="/assets/vendors/Flot/jquery.flot.js"></script>
+    <script src="/assets/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="/assets/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="/assets/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="/assets/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="/assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="/assets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="/assets/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="/assets/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="/assets/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="/assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="/assets/vendors/moment/min/moment.min.js"></script>
+    <script src="/assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/assets/js/custom.min.js"></script>
+
+    <!-- Initialize datetimepicker -->
+    <script>
+      $('#myDatepicker').datetimepicker();
+
+      $('#myDatepicker2').datetimepicker({
+        format: 'DD.MM.YYYY'
+      });
+
+      $('#myDatepicker3').datetimepicker({
+        format: 'hh:mm A'
+      });
+
+      $('#myDatepicker4').datetimepicker({
+        ignoreReadonly: true,
+        allowInputToggle: true
+      });
+
+      $('#datetimepicker6').datetimepicker();
+
+      $('#datetimepicker7').datetimepicker({
+        useCurrent: false
+      });
+
+      $("#datetimepicker6").on("dp.change", function(e) {
+        $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+      });
+
+      $("#datetimepicker7").on("dp.change", function(e) {
+        $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+      });
+    </script>
+  </body>
+</html>
