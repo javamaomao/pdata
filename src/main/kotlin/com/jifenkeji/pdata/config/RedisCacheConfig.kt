@@ -2,7 +2,6 @@ package com.jifenkeji.pdata.config
 
 import org.springframework.cache.annotation.CachingConfigurerSupport
 import org.springframework.context.annotation.Configuration
-
 /**
  *
  * redis缓存配置
@@ -12,7 +11,7 @@ import org.springframework.context.annotation.Configuration
 //@EnableCaching
 class RedisConfig : CachingConfigurerSupport() {
 //
-//    @Bean
+//  @Bean
 //    fun KeyGenerator(): KeyGenerator {
 //        return KeyGenerator { target, method, params ->
 //            val sb = StringBuilder()
