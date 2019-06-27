@@ -9,6 +9,7 @@ import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.ResponseBody
 
 @Controller
 @RequestMapping("/admin")
@@ -31,13 +32,14 @@ class AdminController {
     }
 
     @PostMapping("add_save")
+    @ResponseBody
     fun addSave(model: Model, admin: Admin?): Any? {
         //
-        admin ?: return "redirect:add"
+        admin ?: return mapOf("result" to "error")
 
         adminService.add(admin)
 
-        return "redirect:list"
+        return mapOf("result" to "ok")
     }
     @GetMapping("del")
     fun del(id: Int?): Any? {

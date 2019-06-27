@@ -21,7 +21,6 @@
     <!-- Custom Theme Style -->
     <link href="/assets/css/custom.min.css" rel="stylesheet">
 
-    <link href="https://cdn.bootcss.com/limonte-sweetalert2/7.33.1/sweetalert2.all.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -239,21 +238,44 @@
 
 <!-- Custom Theme Scripts -->
 <script src="/assets/js/custom.min.js"></script>
-<script src="https://cdn.bootcss.com/limonte-sweetalert2/7.33.1/sweetalert2.all.min.js"></script>
+
+<script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 <script>
     $(document).ready(function() {
-        swal('Succes','','ok');
     });
     $("#btn-add-admin-submit").click(function () {
-        $("#add-form").find("#userId").val("asdfsdf");
-        alert("asdf");
+        var data = $('#add-form').serialize();
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "add_save",
+            data: data,
+            success: function (result) {
+                if (result.result == "ok") {
+                    $('#add-admin-modal').modal('hide');//隐藏modal
+                    location.reload();
+                }
+            },
+            error: function(data) {
+                alert("error:"+data.responseText);
+            }
+        });
     });
     $(".btn-delete-item").click(function () {
-
-        swal( "删除确认" ,  "您确实要删除吗？" ,  "error" );
-/*        $id = $(this).attr("data-id")
-        location.href="/admin/del?id=" + $id;*/
+        swal("您确实要删除吗?", {
+            icon: "warning",
+            dangerMode: true,
+            buttons: ["取消", "确认"],
+        })
+            .then( (value) => {
+                if (value === true) {
+                    $id = $(this).attr("data-id")
+                    location.href="/admin/del?id=" + $id;
+                }
+            })
+        ;
+        //swal( "删除确认" ,  "您确实要删除吗？" ,  "error" );
     });
 
 </script>
