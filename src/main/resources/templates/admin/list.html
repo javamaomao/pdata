@@ -1,219 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Meta, title, CSS, favicons, etc. -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Gentelella Alela! | </title>
+    <title>Gentelella Alela! | </title>
 
-  <!-- Bootstrap -->
-  <link href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <!-- NProgress -->
-  <link href="/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
-  <!-- iCheck -->
-  <link href="/assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 
-  <!-- Custom Theme Style -->
-  <link href="/assets/css/custom.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="/assets/css/custom.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
 <div class="container body">
-  <div class="main_container">
+    <div class="main_container">
+        <div th:replace="common::left_col"></div>
 
-    <div th:replace="common::left_col"></div>
+        <!-- top navigation -->
+        <div th:replace="common::top_nav"></div>
+        <!-- /top navigation -->
 
-    <!-- top navigation -->
-    <div class="top_nav">
-      <div class="nav_menu">
-        <nav>
-          <div class="nav toggle">
-            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-          </div>
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>管理员列表
+                            <small>这里可以对管理员进行管理</small>
+                        </h3>
+                    </div>
 
-          <ul class="nav navbar-nav navbar-right">
-            <li class="">
-              <a href="/javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                <img src="/assets/images/img.jpg" alt="">John Doe
-                <span class=" fa fa-angle-down"></span>
-              </a>
-              <ul class="dropdown-menu dropdown-usermenu pull-right">
-                <li><a href="/javascript:;"> Profile</a></li>
-                <li>
-                  <a href="/javascript:;">
-                    <span class="badge bg-red pull-right">50%</span>
-                    <span>Settings</span>
-                  </a>
-                </li>
-                <li><a href="/javascript:;">Help</a></li>
-                <li><a href="/login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-              </ul>
-            </li>
+                    <div class="title_right">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="关键字">
+                                <span class="input-group-btn">
+<button class="btn btn-default" type="button">搜索!</button>
+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <li role="presentation" class="dropdown">
-              <a href="/javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-envelope-o"></i>
-                <span class="badge bg-green">6</span>
-              </a>
-              <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                <li>
-                  <a>
-                    <span class="image"><img src="/assets/images/img.jpg" alt="Profile Image" /></span>
-                    <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                    <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="image"><img src="/assets/images/img.jpg" alt="Profile Image" /></span>
-                    <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                    <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="image"><img src="/assets/images/img.jpg" alt="Profile Image" /></span>
-                    <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                    <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                  </a>
-                </li>
-                <li>
-                  <a>
-                    <span class="image"><img src="/assets/images/img.jpg" alt="Profile Image" /></span>
-                    <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                    <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                  </a>
-                </li>
-                <li>
-                  <div class="text-center">
-                    <a>
-                      <strong>See All Alerts</strong>
-                      <i class="fa fa-angle-right"></i>
-                    </a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-    <!-- /top navigation -->
-
-    <!-- page content -->
-    <div class="right_col" role="main">
-      <div class="">
-        <div class="page-title">
-          <div class="title_left">
-            <h3>管理员列表 <small>这里可以对管理员进行管理</small></h3>
-          </div>
-
-          <div class="title_right">
-            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="关键字">
-                <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">搜索!</button>
-                    </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="clearfix"></div>
-
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>管理员列表 <small>所有管理员</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                  </li>
-                  <li class="dropdown">
-                    <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="/#">设置1</a>
-                      </li>
-                      <li><a href="/#">设置2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a class="close-link"><i class="fa fa-close"></i></a>
-                  </li>
-                </ul>
                 <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
 
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th>序号</th>
-                    <th>账号</th>
-                    <th>昵称</th>
-                    <th>组名</th>
-                    <th>性别</th>
-                    <th>电话号码</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr th:each="item: ${admins}">
-                    <td th:text="*{item.id}">@mdo</td>
-                    <td th:text="*{item.userId}">Mark</td>
-                    <td th:text="*{item.userName}">Otto</td>
-                    <td th:text="*{item.groupId}">@mdo</td>
-                    <td th:text="*{item.sex}">@mdo</td>
-                    <td th:text="*{item.tel}">@mdo</td>
-                  </tr>
-                  </tbody>
-                </table>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>管理员列表
+                                    <small>所有管理员</small>
+                                </h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                           aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/#">设置1</a>
+                                            </li>
+                                            <li><a href="/#">设置2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
 
-              </div>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>序号</th>
+                                        <th>账号</th>
+                                        <th>昵称</th>
+                                        <th>组名</th>
+                                        <th>性别</th>
+                                        <th>电话号码</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="item: ${admins}">
+                                        <td th:text="*{item.id}">@mdo</td>
+                                        <td th:text="*{item.userId}">Mark</td>
+                                        <td th:text="*{item.userName}">Otto</td>
+                                        <td th:text="*{item.groupId}">@mdo</td>
+                                        <td th:text="*{item.sex}">@mdo</td>
+                                        <td>
+                                            <button class="btn btn-info">修改</button>
+                                            <button class="btn btn-danger btn-delete-item" th:data-id="*{item.id}">删除</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <button type="button" class="btn btn-success" data-toggle="modal"
+                                                    data-target="#add-admin-modal">增加管理员
+                                            </button>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
-          </div>
-
-
         </div>
-      </div>
-    </div>
-    <!-- /page content -->
+        <!-- /page content -->
 
-    <!-- footer content -->
-    <footer>
-      <div class="pull-right">
-        Gentelella - Bootstrap Admin Template by Colorlib. More Templates <a href="/http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="/http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-      </div>
-      <div class="clearfix"></div>
-    </footer>
-    <!-- /footer content -->
-  </div>
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by Colorlib. More Templates <a href="/http://www.cssmoban.com/"
+                                                                                     target="_blank"
+                                                                                     title="模板之家">模板之家</a> - Collect
+                from <a href="/http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
 </div>
+
+<!-- Large modal -->
+
+<div class="modal fade" id="add-admin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <form id="add-form" data-parsley-validate class="form-horizontal form-label-left" th:object="${admin}">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userId">账号 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="userId" name="userId" required="required"
+                                   class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">昵称 <span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="userName" name="userName" required="required"
+                                   class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userPassword">密码 <span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="userPassword" name="userPassword" required="required"
+                                   class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">电话号码 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="tel" name="tel" class="date-picker form-control col-md-7 col-xs-12"
+                                   required="required" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="groupId" class="control-label col-md-3 col-sm-3 col-xs-12">组</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="groupId" class="form-control col-md-7 col-xs-12" type="text" name="groupId">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">性别</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div id="gender" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default" data-toggle-class="btn-primary"
+                                       data-toggle-passive-class="btn-default">
+                                    <input type="radio" id="sex_male" name="sex" value="1"> &nbsp; 男 &nbsp;
+                                </label>
+                                <label class="btn btn-primary" data-toggle-class="btn-primary"
+                                       data-toggle-passive-class="btn-default">
+                                    <input type="radio" id="sex_female" name="sex" value="0"> &nbsp; 女 &nbsp;
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button class="btn btn-primary" type="reset">重置</button>
+                    <button type="button" class="btn btn-success" id="btn-add-admin-submit">提交</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <!-- jQuery -->
 <script src="/assets/vendors/jquery/dist/jquery.min.js"></script>
@@ -228,5 +237,17 @@
 
 <!-- Custom Theme Scripts -->
 <script src="/assets/js/custom.min.js"></script>
+
+<script>
+    $("#btn-add-admin-submit").click(function () {
+        $("#add-form").find("#userId").val("asdfsdf");
+        alert("asdf");
+    });
+    $(".btn-delete-item").click(function () {
+        $id = $(this).attr("data-id")
+        location.href="/admin/del?id=" + $id;
+    });
+
+</script>
 </body>
 </html>
