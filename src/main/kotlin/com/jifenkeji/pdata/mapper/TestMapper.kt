@@ -12,6 +12,7 @@ interface TestMapper : BaseMapper<Test, Int> {
     override fun insert(record: Test): Int
 
     @Select("select", "id, name", "from test", "order by id desc")
-    @Results(Result(column = "id", property = "id", jdbcType = JdbcType.INTEGER), Result(column = "name", property = "name", jdbcType = JdbcType.VARCHAR))
+    @Results(Result(column = "id", property = "id", jdbcType = JdbcType.INTEGER),
+            Result(column = "name", property = "name", jdbcType = JdbcType.VARCHAR))
     override fun selectAll(): List<Test>
 }

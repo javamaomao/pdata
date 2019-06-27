@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -30,6 +30,7 @@
   </head>
 
   <body class="nav-md">
+
     <div class="container body">
       <div class="main_container">
         <div th:replace="/common::left_col"></div>
@@ -75,7 +76,7 @@
                   </div>
                   <div class="x_content">
                     <div class="col-md-2 col-sm-2 col-xs-2">
-                      <button type="submit" class="btn btn-success">+创建新活动</button>
+                      <button class="btn btn-default" type="button"><a href="/tables.html">+创建新活动</a></button>
                     </div>
                     <div class="col-md-10 col-sm-10 col-xs-10">
                       <div class="row" style="overflow: auto">
