@@ -86,7 +86,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="item: ${admins}" th:data-id="*{item.id}">
+                                    <tr th:each="item: ${admins.records}" th:data-id="*{item.id}">
                                         <td th:text="*{item.id}">@mdo</td>
                                         <td th:text="*{item.userId}">Mark</td>
                                         <td th:text="*{item.userName}">Otto</td>

@@ -1,8 +1,8 @@
 package com.jifenkeji.pdata.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage
-import com.jifenkeji.pdata.entity.Admin;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jifenkeji.pdata.entity.Admin
 
 /**
  * <p>
@@ -14,5 +14,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 interface IAdminService : IService<Admin> {
     fun findRolesByAdminId(username: String): List<String>?
-    fun selectPageVo(pageIndex: Long?, pageSize: Long?, state: Int?): IPage<Admin>
+    fun selectPage(pageIndex: Long?, pageSize: Long?): IPage<Admin>
+
 }

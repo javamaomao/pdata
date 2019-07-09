@@ -24,6 +24,10 @@ import javax.annotation.Resource
  */
 @Service
 open class AdminServiceImpl : ServiceImpl<AdminMapper, Admin>(), IAdminService {
+    override fun selectPage(pageIndex: Long?, pageSize: Long?): IPage<Admin> {
+        return baseMapper.selectPage(Page<Admin>(pageIndex ?: 1, pageSize ?: 20), null)
+    }
+
     //
     @Resource
     lateinit var adminGroupMapper: AdminGroupMapper
@@ -37,23 +41,6 @@ open class AdminServiceImpl : ServiceImpl<AdminMapper, Admin>(), IAdminService {
         return list
     }
 
-    /**
-     * 查询角色列表(分页)
-     *
-     * @param roleParam 角色参数
-     * @return 查询角色分页列表
-     */
-    override fun selectPageVo(pageIndex: Long?, pageSize: Long?, state: Int?): IPage<Admin> {
-        val page = Page<Admin>(pageIndex ?: 1, pageSize ?: 10)
-        return baseMapper.selectPageVo(page, state)
-    }
 
-    fun selectUserPage(page: Page<Admin>, state: Int?): IPage<Admin> {
-        // 不进行 count sql 优化，解决 MP 无法自动优化 SQL 问题，这时候你需要自己查询 count 部分
-        // page.setOptimizeCountSql(false);
-        // 当 total 为非 0 时(默认为 0),分页插件不会进行 count 查询
-        // 要点!! 分页返回的对象与传入的对象是同一个
-        return baseMapper.selectPageVo(page,
-                                       state)
-    }
+
 }
