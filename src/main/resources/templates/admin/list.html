@@ -101,7 +101,7 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <td colspan="7">
+                                        <!--<td colspan="7">
                                             <p class="text-muted">
                                                 <span class="page-link" th:text="${' 当前是第' + admins.pageNum.toString() +'页，一共有'+ admins.pages+'页,一共有 '+ admins.total.toString() + '个用户'}"></span></p>
 
@@ -117,7 +117,26 @@
                                                     </ul>
                                                 </div>
                                             </div>
+                                        </td>-->
+
+                                        <td colspan="7">
+                                            <p class="text-muted">
+                                                <span class="page-link" th:text="${' 当前是第' + admins.current.toString() +'页，一共有'+ admins.pages+'页,一共有 '+ admins.total.toString() + '个用户'}"></span></p>
+
+                                            <div class="btn-group">
+                                                <a class="btn btn-default" type="button" th:href="${'?page='+(admins.current-1).toString()}">&laquo;</a>
+                                                <a class="btn btn-default" type="button" th:each="i: ${#numbers.sequence(1,admins.pages)}" th:classappend="${admins.current==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()}">1</a>
+                                                <a class="btn btn-default" type="button"  th:href="${'?page='+(admins.current+1).toString()}">&raquo;</a>
+                                                <div class="btn-group">
+                                                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"> 选择其他页 <span class="caret"></span> </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li th:each="i: ${#numbers.sequence(1,admins.pages)}" th:classappend="${admins.current==i?'':''}"><a th:href="*{'?page='+i}"  th:text="*{i}">Dropdown link 1</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </td>
+
                                     </tr>
                                     </tfoot>
                                 </table>

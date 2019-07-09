@@ -30,6 +30,7 @@ class AdminController {
     @GetMapping("",
                 "/",
                 "list")
+
     fun list(model: Model, page: Long?, size: Long?): Any? {
 
         val admins = adminService.selectPage(page, size)
@@ -42,6 +43,17 @@ class AdminController {
                   adminGroupService.listByMap(null))
         return "admin/list"
     }
+
+ /*   @GetMapping("",
+            "/",
+            "list")
+     @ResponseBody
+    fun list(model: Model, page: Long?, size: Long?): Any? {
+
+        val admins = adminService.selectPage(page, size)
+        return admins
+
+    }*/
 
     @GetMapping("role_mgr")
     fun ruleMgr(model: Model, page: Long?, size: Long?): Any? {
@@ -117,4 +129,8 @@ class AdminController {
 
         return "redirect:/admin/list"
     }
+
+
+
+
 }
