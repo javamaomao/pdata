@@ -32,7 +32,8 @@ class AdminController {
                 "list")
     fun list(model: Model, page: Long?, size: Long?): Any? {
 
-        val admins = adminService.selectPageVo(page, size, 0)
+        val admins = adminService.selectPage(page, size)
+
         model.set("admins",
                   admins)
 

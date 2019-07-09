@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody
 class IndexController {
     @GetMapping("/", "/index")
     fun index(): Any {
+        print("asdf")
         return "/index"
     }
 

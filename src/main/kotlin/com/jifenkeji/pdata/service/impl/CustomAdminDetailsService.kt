@@ -30,8 +30,7 @@ class CustomAdminDetailsService : UserDetailsService {
         val wrapper = QueryWrapper<Admin>().apply {
             eq("user_name", username)
         }
-        //val admins = adminService!!.selectPageVo(1, 10, 0)
-        val adminList = adminService!!.list()
+
         val user = adminService!!.getOne(wrapper, false)
         if (user == null) {
             logger.info("获取管理员信息" + username + "失败")
