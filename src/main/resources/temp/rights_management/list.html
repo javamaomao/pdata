@@ -76,23 +76,20 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th>序号</th>
-                                        <th>账号</th>
-                                        <th>昵称</th>
-                                        <th>组名</th>
-                                        <th>性别</th>
-                                        <th>电话号码</th>
-                                        <th>操作</th>
+                                                                                <th>权限ID</th>
+                                        <th>权限名称</th>
+                                        <th>权限图标</th>
+                                        <th>权限地址</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="item: ${admins}" th:data-id="*{item.id}">
-                                        <td th:text="*{item.id}">@mdo</td>
-                                        <td th:text="*{item.userId}">Mark</td>
-                                        <td th:text="*{item.userName}">Otto</td>
-                                        <td th:text="*{item.groupName}">@mdo</td>
-                                        <td th:text="*{item.sex==true?'男':'女'}">@mdo</td>
-                                        <td th:text="*{item.tel}">@mdo</td>
+                                    <tr th:each="item: ${datas}" th:data-id="*{item.id}">
+                                        <td th:text="*{item.authorization_id}">权限ID</td>
+                                        <td th:text="*{item.permission_to_name}">权限名称</td>
+                                        <td th:text="*{item.permissions_on_icon}">权限图标</td>
+                                        <td th:text="*{item.permission_to_address}">权限地址</td>
+
                                         <td>
                                             <button class="btn btn-info btn-modify-item">修改</button>
                                             <button class="btn btn-danger btn-delete-item">删除</button>
@@ -103,16 +100,16 @@
                                     <tr>
                                         <td colspan="7">
                                             <p class="text-muted">
-                                                <span class="page-link" th:text="${' 当前是第' + admins.pageNum.toString() +'页，一共有'+ admins.pages+'页,一共有 '+ admins.total.toString() + '个用户'}"></span></p>
+                                                <span class="page-link" th:text="${' 当前是第' + datas.pageNum.toString() +'页，一共有'+ datas.pages+'页,一共有 '+ datas.total.toString() + '个用户'}"></span></p>
 
                                             <div class="btn-group">
-                                                <a class="btn btn-default" type="button" th:href="${'?page='+(admins.pageNum-1).toString()}">&laquo;</a>
-                                                <a class="btn btn-default" type="button" th:each="i: ${#numbers.sequence(1,admins.pages)}" th:classappend="${admins.pageNum==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()}">1</a>
-                                                <a class="btn btn-default" type="button"  th:href="${'?page='+(admins.pageNum+1).toString()}">&raquo;</a>
+                                                <a class="btn btn-default" type="button" th:href="${'?page='+(datas.pageNum-1).toString()}">&laquo;</a>
+                                                <a class="btn btn-default" type="button" th:each="i: ${#numbers.sequence(1,datas.pages)}" th:classappend="${datas.pageNum==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()}">1</a>
+                                                <a class="btn btn-default" type="button"  th:href="'?page='+(datas.pageNum+1).toString()}">&raquo;</a>
                                                 <div class="btn-group">
                                                     <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"> 选择其他页 <span class="caret"></span> </button>
                                                     <ul class="dropdown-menu">
-                                                        <li th:each="i: ${#numbers.sequence(1,admins.pages)}" th:classappend="${admins.pageNum==i?'':''}"><a th:href="*{'?page='+i}"  th:text="*{i}">Dropdown link 1</a>
+                                                        <li th:each="i: ${#numbers.sequence(1,datas.pages)}" th:classappend="${datas.pageNum==i?'':''}"><a th:href="*{'?page='+i}"  th:text="*{i}">Dropdown link 1</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -147,78 +144,43 @@
 <div class="modal fade" id="add-admin-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="add-form" data-parsley-validate class="form-horizontal form-label-left">
-                <input type="hidden" id="id" name="id"/>
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                    </button>
-                    <h4 class="modal-title">增加用户</h4>
+            <form id="add-form" data-parsley-validate class="form-horizontal form-label-left" action="/rights_management/add_save" method="post" th:object="${rights_management}">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="authorization_id">权限ID <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="authorization_id" name="authorization_id" th:value="*{authorization_id}" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="permission_to_name">权限名称 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="permission_to_name" name="permission_to_name" th:value="*{permission_to_name}" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="permissions_on_icon">权限图标 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="permissions_on_icon" name="permissions_on_icon" th:value="*{permissions_on_icon}" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="permission_to_address">权限地址 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="permission_to_address" name="permission_to_address" th:value="*{permission_to_address}" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button class="btn btn-primary" type="reset">重置</button>
+                        <button type="submit" class="btn btn-success">提交</button>
+                    </div>
                 </div>
-                <div class="modal-body">
 
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userId">账号 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="userId" name="userId" required="required"
-                                   class="form-control col-md-7 col-xs-12" placeholder="请输入您的账号">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">昵称 <span
-                                class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="userName" name="userName" required="required"
-                                   class="form-control col-md-7 col-xs-12" placeholder="请输入您的昵称">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userPassword">密码 <span
-                                class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="password" id="userPassword" name="userPassword" required="required"
-                                   class="form-control col-md-7 col-xs-12">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">电话号码 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="tel" name="tel" class="date-picker form-control col-md-7 col-xs-12"
-                                   required="required" type="text" placeholder="电话号码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="groupId" class="control-label col-md-3 col-sm-3 col-xs-12">组</label>
-                        <div class="col-md-7 col-xs-12">
-                            <select id="groupId" name="groupId" class="form-control" required>
-                                <option th:each="type : ${groups}" th:text="${type.groupName}" th:value="${type.groupId}"></option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">性别</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div id="gender" class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default" data-toggle-class="btn-primary"
-                                       data-toggle-passive-class="btn-default">
-                                    <input type="radio" id="sex_male" name="sex" value="1"> &nbsp; 男 &nbsp;
-                                </label>
-                                <label class="btn btn-primary" data-toggle-class="btn-primary"
-                                       data-toggle-passive-class="btn-default">
-                                    <input type="radio" id="sex_female" name="sex" value="0"> &nbsp; 女 &nbsp;
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button class="btn btn-primary" type="reset">重置</button>
-                    <button type="button" class="btn btn-success" id="btn-add-admin-submit">提交</button>
-                </div>
             </form>
         </div>
     </div>

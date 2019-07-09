@@ -1,6 +1,8 @@
-package com.jifenkeji.pdata.service.imp
+package com.jifenkeji.pdata.service.impl
 
-import com.jifenkeji.pdata.service.AdminService
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
+import com.jifenkeji.pdata.entity.Admin
+import com.jifenkeji.pdata.service.IAdminService
 import org.apache.logging.log4j.LogManager
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.GrantedAuthority
@@ -16,7 +18,7 @@ import java.util.*
 class CustomAdminDetailsService : UserDetailsService {
 
     @Autowired
-    internal var adminService: AdminService? = null
+    internal var adminService: IAdminService? = null
 
     internal var logger = LogManager.getLogger(CustomAdminDetailsService::class.java)
     /**
@@ -25,18 +27,23 @@ class CustomAdminDetailsService : UserDetailsService {
     @Throws(UsernameNotFoundException::class)
     override fun loadUserByUsername(username: String): UserDetails {
         logger.info("获取管理员信息-->管理员名为:$username")
-        val user = adminService!!.findByAdminId(username)
+        val wrapper = QueryWrapper<Admin>().apply {
+            eq("user_name", username)
+        }
+        //val admins = adminService!!.selectPageVo(1, 10, 0)
+        val adminList = adminService!!.list()
+        val user = adminService!!.getOne(wrapper, false)
         if (user == null) {
             logger.info("获取管理员信息" + username + "失败")
             throw UsernameNotFoundException("管理员名：" + username + "不存在")
         }
         val authorities = ArrayList<GrantedAuthority>()
-        val roleList = adminService!!.findRolesByAdminId(username)
-
-        for (role in roleList!!) {
-            logger.info("获取管理员权限-->" + role["role_code"])
-            val authority = SimpleGrantedAuthority(role["role_code"])
-            authorities.add(authority)
+        adminService!!.findRolesByAdminId(username)?.let {roleList->
+            for (role in roleList) {
+                logger.info("获取管理员权限-->" + role)
+                val authority = SimpleGrantedAuthority(role)
+                authorities.add(authority)
+            }
         }
         // 保存权限信息
         user.authoritiesList = authorities

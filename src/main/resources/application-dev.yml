@@ -1,8 +1,16 @@
-
 spring:
   profiles: dev
 
+
   datasource:
+#    driver-class-name: org.h2.Driver
+#    schema: classpath:db/schema-h2.sql
+#    data: classpath:db/data-h2.sql
+#    url: jdbc:h2:mem:test
+#    username: root
+#    password: yangguo999
+
+#  datasource:
     url: jdbc:mysql://192.168.0.81:3306/pdata?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: yangguo999
@@ -29,7 +37,7 @@ spring:
 # 打印sql
 logging:
   level:
-    com.jifenkeji.pdata.mapper: DEBUG
+    com.jifenkeji.pdata: DEBUG
     log4j.logger.com.ibatis: DEBUG
     log4j.logger.com.ibatis.common.jdbc.SimpleDataSource: DEBUG
     log4j.logger.com.ibatis.common.jdbc.ScriptRunner: DEBUG
@@ -37,3 +45,4 @@ logging:
     log4j.logger.Java.sql.Connection: DEBUG
     log4j.logger.java.sql.Statement: DEBUG
     log4j.logger.java.sql.PreparedStatement: DEBUG
+

@@ -63,12 +63,19 @@ spring:
     #连接超时时间
     timeout: 10000ms
 
+mybatis:
+  mapperLocations: classpath:mapper/*Mapper.xml
+  typeAliasesPackage: com.jifenkeji.pdata.entity
 #
 ## 与mybatis整合
 ##扫描entrity包
-mybatis:
-  type-aliases-package: com.testdata.model
-  mapper-locations: classpath:mapper/*.xml
+#mybatis:
+#  type-aliases-package: com.jifenkeji.pdata.entity
+#  mapper-locations: classpath:mapper/xml/*.xml
+#  configuration:
+#    #开启驼峰命名转换
+#    map-underscore-to-camel-case: true
+
     #mybatis.table.auto=update
     #mybatis.model.pack=com.example.entity
   #mybatis.database.type=mysql
@@ -80,9 +87,9 @@ mybatis:
 #  identity: MYSQL
 #
 
-# 分页配置
-pagehelper:
-  helper-dialect: mysql
-  reasonable: true
-  support-methods-arguments: true
-  params: count=countSql
+## 分页配置
+#pagehelper:
+#  helper-dialect: mysql
+#  reasonable: true
+#  support-methods-arguments: true
+#  params: count=countSql

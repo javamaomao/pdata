@@ -68,11 +68,11 @@
                             <li class="active"><a><i class="fa fa-home"></i> 用户获取 <span
                                     class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: block;">
-                                    <li><a href="/activity/product_code_list">活动列表</a></li>
-                                    <li><a href="/activity/add2">创建活动</a></li>
                                     <li><a><i class="fa fa-edit"></i> 产品码招募活动 <span
                                             class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
+                                            <li><a href="/activity/product_code_list">活动列表</a></li>
+                                            <li><a href="/activity/add">创建活动</a></li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-edit"></i> 门店码招募活动 <span
@@ -100,35 +100,52 @@
                             <li class="active"><a><i class="fa fa-home"></i> 用户互动 <span
                                     class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: block;">
-                                    <li><a href="/activity/list">非自动化的互动活动</a></li>
+                                    <li><a><i class="fa fa-edit"></i> 非自动化的互动活动 <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="/form.html">活动列表</a></li>
+                                            <li><a href="/form.html">创建活动</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="active"><a><i class="fa fa-home"></i> 业务报表 <span
                                     class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: block;">
-                                    <li><a href="/data_dashboard">私域数据仪表盘</a></li>
-                                    <li><a href="/user_analysis">用户分析</a></li>
-                                    <li><a href="/activity_analysis">活动分析</a></li>
+                                    <li><a href="/form.html">私域数据仪表盘</a></li>
+                                    <li><a href="/form.html">用户分析</a></li>
+                                    <li><a href="/form.html">活动分析</a></li>
                                 </ul>
                             </li>
                             <li class="active"><a><i class="fa fa-home"></i> 系统管理 <span
                                     class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu" style="display: block;">
-                                    <li><a href="/admin/role_mgr">角色管理</a></li>
-                                    <li><a href="/admin/">账号管理</a></li>
-                                    <li><a href="/log/">日志管理</a></li>
-                                    <li><a href="/goods/">商品库管理</a></li>
-                                    <li><a href="/shop/">门店库管理</a></li>
-                                    <li><a href="/channel/">渠道库管理</a></li>
-                                    <li><a href="/offer/">offer库管理</a></li>
-                                    <li><a href="/touchspot/">触点库管理</a></li>
-
-                                    <li><a href="/wxmenu/">菜单管理</a></li>
-                                    <li><a href="/welcome/">欢迎语管理</a></li>
-                                    <li><a href="/content/">内容编辑</a></li>
-                                    <li><a href="/stat_tag/">统计标签</a></li>
-                                    <li><a href="/rule_tag/">规则标签</a></li>
-                                    <li><a href="/tag_output">标签输出管理</a></li>
+                                    <li><a><i class="fa fa-edit"></i> 系统设置 <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="/admin/">用户/角色管理</a></li>
+                                            <li><a href="/form.html">日志管理</a></li>
+                                            <li><a href="/form.html">商品库管理</a></li>
+                                            <li><a href="/form.html">门店库管理</a></li>
+                                            <li><a href="/form.html">渠道库管理</a></li>
+                                            <li><a href="/form.html">offer库管理</a></li>
+                                            <li><a href="/form.html">触点库管理</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="active"><a><i class="fa fa-home"></i> 微信平台管理 <span
+                                    class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: block;">
+                                    <li><a href="/form.html">菜单管理</a></li>
+                                    <li><a href="/form.html">欢迎语管理</a></li>
+                                    <li><a href="/form.html">内容编辑</a></li>
+                                </ul>
+                            </li>
+                            <li class="active"><a><i class="fa fa-home"></i> 标签管理 <span
+                                    class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu" style="display: block;">
+                                    <li><a href="/form.html">统计标签</a></li>
+                                    <li><a href="/form.html">规则标签</a></li>
+                                    <li><a href="/form.html">标签输出管理</a></li>
                                 </ul>
                             </li>
                         </ul>

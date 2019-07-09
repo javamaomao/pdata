@@ -1,6 +1,6 @@
 package com.jifenkeji.pdata.config
 
-import com.jifenkeji.pdata.service.imp.CustomAdminDetailsService
+import com.jifenkeji.pdata.service.impl.CustomAdminDetailsService
 import com.jifenkeji.pdata.utils.MyPasswordEncoder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -38,7 +38,7 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
                 .csrf() //跨站
                 .disable()  //关闭跨站检测
                 .authorizeRequests()    //验证策略
-                .antMatchers("/assets/**","/css/**","/image/*","/js/*").permitAll()
+                .antMatchers("/assets/**","/css/**","/image/**","/js/**").permitAll()
                 .antMatchers("/admin/**").permitAll() // #hasAnyRole("ADMIN")
                 .antMatchers("/**").authenticated()    //需要验证authenticated
                 .anyRequest().permitAll()

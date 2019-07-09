@@ -11,4 +11,8 @@ class ActivityController {
     fun index(): Any {
         return "activity/product_code_list"
     }
+    @GetMapping("add")
+    fun add(): Any {
+        return "activity/add"
+    }
 }

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>私域数据 | </title>
+
+  <!-- Bootstrap -->
+  <link href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="/assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+  <!-- bootstrap-wysiwyg -->
+  <link href="/assets/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+  <!-- Select2 -->
+  <link href="/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+  <!-- Switchery -->
+  <link href="/assets/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+  <!-- starrr -->
+  <link href="/assets/vendors/starrr/dist/starrr.css" rel="stylesheet">
+  <!-- bootstrap-daterangepicker -->
+  <link href="/assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="/assets/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <!-- left col -->
+    <div th:replace="common::left_col"></div>
+    <!-- /left col -->
+
+    <!-- top navigation -->
+    <div th:replace="common::top_nav"></div>
+    <!-- /top navigation -->
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+      <div class="">
+        <div class="page-title">
+          <div class="title_left">
+            <h3>管理员列表 <small>这里可以对管理员进行管理</small></h3>
+          </div>
+
+          <div class="title_right">
+            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="关键字">
+                <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">搜索!</button>
+                    </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+          <!-- form input mask -->
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>活动基本信息</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <br />
+                <form class="form-horizontal form-label-left" id="demo-form" data-parsley-validate>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3">活动名称</label>
+                    <div class="input-group col-md-9 col-sm-9 col-xs-9">
+                      <input type="text" class="form-control">
+                      <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3">活动开始时间</label>
+                    <div class='input-group date col-md-9 col-sm-9 col-xs-9' id='startTimeDiv'>
+                      <input type='text' id="startTime" name="startTime" class="form-control" />
+                      <span class="input-group-addon">
+                               <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3">活动结束时间</label>
+                    <div class='input-group date col-md-9 col-sm-9 col-xs-9' id='endTimeDiv'>
+                      <input type='text' id="endTime" name="endTime" class="form-control" />
+                      <span class="input-group-addon">
+                               <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div id="gender" class="btn-group" data-toggle="buttons">
+                        <p>
+                          <input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /><label for="genderM">&nbsp;不需要offer</label>&nbsp;&nbsp;&nbsp;
+                          <input type="radio" class="flat" name="gender" id="genderF" value="F" /><label for="genderF">&nbsp;不需要On-boarding体验</label>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /form input mask -->
+
+          <!-- form color picker -->
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>招募Offer管理</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <br />
+                <form class="form-horizontal form-label-left">
+                  <div class="form-group">
+                    <label class="control-label col-md-2 col-sm-2 col-xs-12">二维码 1组</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                        <button class="btn btn-min btn-primary">编辑</button><button class="btn btn-min btn-danger">删除</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-2 col-sm-2 col-xs-12">二维码 1组</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                        <button class="btn btn-min btn-primary">编辑</button><button class="btn btn-min btn-danger">删除</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-2 col-sm-2 col-xs-12">二维码 1组</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                        <button class="btn btn-min btn-primary">编辑</button><button class="btn btn-min btn-danger">删除</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-success">添加offer</button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /form color picker -->
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="row">
+          <!-- form input mask -->
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>二维码信息管理</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <br />
+                <form class="form-horizontal form-label-left">
+
+                  <div class="form-group">
+                    <label class="control-label col-md-2 col-sm-2 col-xs-12">二维码 1组</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                        <button class="btn btn-min btn-primary">编辑</button><button class="btn btn-min btn-danger">删除</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-2 col-sm-2 col-xs-12">二维码 1组</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                        <button class="btn btn-min btn-primary">编辑</button><button class="btn btn-min btn-danger">删除</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-2 col-sm-2 col-xs-12">二维码 1组</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12 form-group has-feedback">
+                        <button class="btn btn-min btn-primary">编辑</button><button class="btn btn-min btn-danger">删除</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-success btn-xs">添加二维码 组别</button>
+                    <button class="btn btn-success btn-xs pull-right">导出二维码</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /form input mask -->
+
+          <!-- form color picker -->
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>On-boarding体验管理</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <br />
+                <form class="form-horizontal form-label-left">
+
+                  <div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div id="gender1" class="btn-group" data-toggle="buttons">
+                        <p>
+                          <input type="radio" class="flat" name="gender" id="welcome_text" value="1" checked="" required /><label for="welcome_text">&nbsp;欢迎语</label>&nbsp;&nbsp;&nbsp;
+                          <input type="radio" class="flat" name="gender" id="custom_menu" value="2" /><label for="custom_menu">&nbsp;个性化菜单</label>
+                          <input type="radio" class="flat" name="gender" id="auto_push" value="3"  required /><label for="auto_push">&nbsp;自动化推送</label>&nbsp;&nbsp;&nbsp;
+                          <input type="radio" class="flat" name="gender" id="disable_msg" value="4" /><label for="disable_msg">&nbsp;屏蔽信息</label>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-2 col-sm-2 col-xs-12">二维码 1组</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="checkbox">
+                          <label>屏蔽&nbsp;<input type="checkbox" class="js-switch" checked />
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-2 col-sm-2 col-xs-12">二维码 1组</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="checkbox">
+                          <label>屏蔽&nbsp;<input type="checkbox" class="js-switch" checked />
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-2 col-sm-2 col-xs-12">二维码 1组</label>
+                    <div class="col-md-10 col-sm-10 col-xs-12">
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label col-md-5 col-sm-5 col-xs-12">Offer类型</label>
+                        <div class="col-md-7 col-sm-7 col-xs-12">
+                          <select class="form-control">
+                            <option>Choose option</option>
+                            <option>Option one</option>
+                            <option>Option two</option>
+                            <option>Option three</option>
+                            <option>Option four</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="checkbox">
+                          <label>屏蔽&nbsp;<input type="checkbox" class="js-switch" checked /></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /form color picker -->
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <button type="submit" class="btn btn-success pull-right">保存活动</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- /page content -->
+
+    <!-- footer content -->
+    <footer>
+      <div class="pull-right">
+        Gentelella - Bootstrap Admin Template by Colorlib. More Templates <a href="/http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="/http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+      </div>
+      <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+  </div>
+</div>
+
+<!-- jQuery -->
+<script src="/assets/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="/assets/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="/assets/vendors/nprogress/nprogress.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="/assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="/assets/vendors/iCheck/icheck.min.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="/assets/vendors/moment/min/moment.min.js"></script>
+<script src="/assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap-wysiwyg -->
+<script src="/assets/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+<script src="/assets/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+<script src="/assets/vendors/google-code-prettify/src/prettify.js"></script>
+<!-- jQuery Tags Input -->
+<script src="/assets/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+<!-- Switchery -->
+<script src="/assets/vendors/switchery/dist/switchery.min.js"></script>
+<!-- Select2 -->
+<script src="/assets/vendors/select2/dist/js/select2.full.min.js"></script>
+<!-- Parsley -->
+<script src="/assets/vendors/parsleyjs/dist/parsley.min.js"></script>
+<!-- Autosize -->
+<script src="/assets/vendors/autosize/dist/autosize.min.js"></script>
+<!-- jQuery autocomplete -->
+<script src="/assets/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+<!-- starrr -->
+<script src="/assets/vendors/starrr/dist/starrr.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="/assets/js/custom.min.js"></script>
+
+</body>
+</html>

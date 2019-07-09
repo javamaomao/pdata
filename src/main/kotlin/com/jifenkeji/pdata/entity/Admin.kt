@@ -1,13 +1,22 @@
 package com.jifenkeji.pdata.entity
 
+import com.baomidou.mybatisplus.annotation.TableField
+import com.baomidou.mybatisplus.annotation.TableName
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
-
+import java.io.Serializable
+import java.util.ArrayList
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author yangguo
+ * @since 2019-07-08
+ */
+@TableName("tb_admin")
 class Admin : UserDetails {
-    //
-    var authoritiesList: MutableCollection<out GrantedAuthority>? = null
-
-    override fun getAuthorities(): MutableCollection<out GrantedAuthority>? {
+    override fun getAuthorities(): ArrayList<GrantedAuthority>? {
         return authoritiesList
     }
 
@@ -15,16 +24,16 @@ class Admin : UserDetails {
         return true
     }
 
-    override fun getUsername(): String? {
-        return this.userName
+    override fun getUsername(): String {
+        return this.userName!!
     }
 
     override fun isCredentialsNonExpired(): Boolean {
         return true
     }
 
-    override fun getPassword(): String? {
-        return this.userPassword
+    override fun getPassword(): String {
+        return userPassword!!
     }
 
     override fun isAccountNonExpired(): Boolean {
@@ -35,34 +44,48 @@ class Admin : UserDetails {
         return true
     }
 
-    var id: Int? = null
-
+    //
+    @TableField(exist = false)
+    var authoritiesList: ArrayList<GrantedAuthority>? = null
+    /**
+     * 用户id
+     */
     var userId: String? = null
-        set(userId) {
-            field = userId?.trim { it <= ' ' }
-        }
 
+    /**
+     * 用户昵称
+     */
     var userName: String? = null
-        set(userName) {
-            field = userName?.trim { it <= ' ' }
-        }
 
+    /**
+     * 用户密码
+     */
     var userPassword: String? = null
-        set(userPassword) {
-            field = userPassword?.trim { it <= ' ' }
-        }
 
+    /**
+     * 组id
+     */
     var groupId: Int? = null
 
+    /**
+     * 性别
+     */
     var sex: Boolean? = null
 
+    /**
+     * 电话
+     */
     var tel: String? = null
-        set(tel) {
-            field = tel?.trim { it <= ' ' }
-        }
 
-    companion object {
 
-        private const val serialVersionUID = 1L
+    override fun toString(): String {
+        return "Admin{" +
+        "userId=" + userId +
+        ", userName=" + userName +
+        ", userPassword=" + userPassword +
+        ", groupId=" + groupId +
+        ", sex=" + sex +
+        ", tel=" + tel +
+        "}"
     }
 }

@@ -1,34 +1,32 @@
-package com.jifenkeji.pdata.mapper
+package com.jifenkeji.pdata.mapper;
 
-import com.jifenkeji.pdata.entity.Admin
-import org.apache.ibatis.annotations.*
-import org.apache.ibatis.type.JdbcType
+import com.jifenkeji.pdata.entity.Admin;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page
+import io.lettuce.core.dynamic.annotation.Param
 
-interface AdminMapper : BaseMapper<Admin, Int> {
-    @Delete("delete from tb_admin", "where id = #{id,jdbcType=INTEGER}")
-    override fun deleteByPrimaryKey(id: Int?): Int
 
-    @Insert("insert into tb_admin (id, user_id, ", "user_name, user_password, ", "group_id, sex, tel)", "values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, ", "#{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, ", "#{groupId,jdbcType=INTEGER}, #{sex,jdbcType=BIT}, #{tel,jdbcType=VARCHAR})")
-    override fun insert(record: Admin): Int
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author yangguo
+ * @since 2019-07-08
+ */
+interface AdminMapper : BaseMapper<Admin> {
 
-    @InsertProvider(type = AdminSqlProvider::class, method = "insertSelective")
-    override fun insertSelective(record: Admin): Int
-
-    @Select("select", "id, user_id, user_name, user_password, group_id, sex, tel", "from tb_admin", "where id = #{id,jdbcType=INTEGER}")
-    @Results(Result(column = "id", property = "id", jdbcType = JdbcType.INTEGER, id = true), Result(column = "user_id", property = "userId", jdbcType = JdbcType.VARCHAR), Result(column = "user_name", property = "userName", jdbcType = JdbcType.VARCHAR), Result(column = "user_password", property = "userPassword", jdbcType = JdbcType.VARCHAR), Result(column = "group_id", property = "groupId", jdbcType = JdbcType.INTEGER), Result(column = "sex", property = "sex", jdbcType = JdbcType.BIT), Result(column = "tel", property = "tel", jdbcType = JdbcType.VARCHAR))
-    override fun selectByPrimaryKey(id: Int?): Admin
-
-    @Select("select", "id, user_id, user_name, user_password, group_id, sex, tel", "from tb_admin", "where user_id = #{userId,jdbcType=VARCHAR}")
-    @Results(Result(column = "id", property = "id", jdbcType = JdbcType.INTEGER, id = true), Result(column = "user_id", property = "userId", jdbcType = JdbcType.VARCHAR), Result(column = "user_name", property = "userName", jdbcType = JdbcType.VARCHAR), Result(column = "user_password", property = "userPassword", jdbcType = JdbcType.VARCHAR), Result(column = "group_id", property = "groupId", jdbcType = JdbcType.INTEGER), Result(column = "sex", property = "sex", jdbcType = JdbcType.BIT), Result(column = "tel", property = "tel", jdbcType = JdbcType.VARCHAR))
-    fun selectByAdminId(userId: String): Admin
-
-    @UpdateProvider(type = AdminSqlProvider::class, method = "updateByPrimaryKeySelective")
-    override fun updateByPrimaryKeySelective(record: Admin): Int
-
-    @Update("update tb_admin", "set user_id = #{userId,jdbcType=VARCHAR},", "user_name = #{userName,jdbcType=VARCHAR},", "user_password = #{userPassword,jdbcType=VARCHAR},", "group_id = #{groupId,jdbcType=INTEGER},", "sex = #{sex,jdbcType=BIT},", "tel = #{tel,jdbcType=VARCHAR}", "where id = #{id,jdbcType=INTEGER}")
-    override fun updateByPrimaryKey(record: Admin): Int
-
-    @Select("select", "id, user_id, user_name, user_password, group_id, sex, tel", "from tb_admin", "order by id desc")
-    @Results(Result(column = "id", property = "id", jdbcType = JdbcType.INTEGER, id = true), Result(column = "user_id", property = "userId", jdbcType = JdbcType.VARCHAR), Result(column = "user_name", property = "userName", jdbcType = JdbcType.VARCHAR), Result(column = "user_password", property = "userPassword", jdbcType = JdbcType.VARCHAR), Result(column = "group_id", property = "groupId", jdbcType = JdbcType.INTEGER), Result(column = "sex", property = "sex", jdbcType = JdbcType.BIT), Result(column = "tel", property = "tel", jdbcType = JdbcType.VARCHAR))
-    override fun selectAll(): List<Admin>
+    /**
+     *
+     *
+     * 查询 : 根据state状态查询用户列表，分页显示
+     * 注意!!: 如果入参是有多个,需要加注解指定参数名才能在xml中取值
+     *
+     *
+     * @param page 分页对象,xml中可以从里面进行取值,传递参数 Page 即自动分页,必须放在第一位(你可以继承Page实现自己的分页对象)
+     * @param state 状态
+     * @return 分页对象
+     */
+    fun selectPageVo(page: Page<Admin>, @Param("state") state: Int?): IPage<Admin>
 }
