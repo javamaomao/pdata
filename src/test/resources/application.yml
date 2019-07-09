@@ -81,7 +81,8 @@ mybatis:
 #  not-empty: false
 #  identity: MYSQL
 #
-
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
 # 分页配置
 pagehelper:
   helper-dialect: mysql

@@ -13,6 +13,7 @@ class PdataApplicationTests {
     @Test
     fun contextLoads() {
 
+        com.baomidou.mybatisplus.annotation.DbType
 //
     }
 
