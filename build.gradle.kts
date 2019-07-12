@@ -40,7 +40,7 @@ dependencies {
     //implementation("com.baomidou:mybatis-plus:3.1.2")
     implementation("com.baomidou:mybatis-plus-boot-starter:3.1.2")
     implementation("com.baomidou:mybatis-plus-generator:3.1.2")
-    implementation("org.freemarker:freemarker:2.3.28")
+    //implementation("org.freemarker:freemarker:2.3.28")
     //implementation("p6spy:p6spy:1")
 
     //swagger

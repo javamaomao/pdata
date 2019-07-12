@@ -18,7 +18,6 @@ class RightsManagement : Serializable {
      * 权限ID
      */
     var authorizationId: String? = null
-
     /**
      * 权限名称
      */
