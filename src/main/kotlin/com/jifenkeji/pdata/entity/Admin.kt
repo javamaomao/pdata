@@ -26,6 +26,7 @@ class Admin : UserDetails {
         return authoritiesList
     }
 
+
     override fun isEnabled(): Boolean {
         return true
     }
@@ -54,7 +55,7 @@ class Admin : UserDetails {
     @TableField(exist = false)
     var authoritiesList: ArrayList<GrantedAuthority>? = null
     /**
-     * 用户id
+     * id
      */
     var id: Int? = null
     /**
@@ -88,6 +89,7 @@ class Admin : UserDetails {
      * 电话
      */
     var tel: String? = null
+
 
 
     override fun toString(): String {

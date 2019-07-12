@@ -16,4 +16,7 @@ interface IAdminService : IService<Admin> {
     fun findRolesByAdminId(username: String): List<String>?
     fun selectPage(pageIndex: Long?, pageSize: Long?): IPage<Admin>
 
+    fun searchpage(pageIndex: Long?, pageSize: Long? ,words :String?):IPage<Admin>
+
+
 }

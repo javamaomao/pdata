@@ -27,28 +27,63 @@ class AdminController {
     @Autowired
     lateinit var adminGroupService: IAdminGroupService
 
+
+    //分页查询
     @GetMapping("",
-                "/",
-                "list")
+            "/",
+            "lists")
     fun list(model: Model, page: Long?, size: Long?): Any? {
 
         val admins = adminService.selectPage(page, size)
 
+
         model.set("admins",
                   admins)
 
-        //
         model.set("groups",
                   adminGroupService.listByMap(null))
         return "admin/list"
     }
 
+ /*   @GetMapping("",
+            "/",
+            "list")
+     @ResponseBody
+    fun list(model: Model, page: Long?, size: Long?): Any? {
+
+        val admins = adminService.selectPage(page, size)
+        return admins
+
+    }*/
+
+
+    //搜素分页查询
+    @GetMapping("search")
+    fun search(model: Model, page: Long?, size: Long?,words: String?): Any? {
+
+
+    val admi= adminService.searchpage(page,size,words);
+
+        model.set("admins", admi)
+
+        model.set("groups",
+                adminGroupService.listByMap(null))
+        return "admin/list"
+
+    }
+
+
+
     @GetMapping("role_mgr")
+
     fun ruleMgr(model: Model, page: Long?, size: Long?): Any? {
         val adminGroups = adminGroupService.selectPage(page, size)
+
         model.set("datas", adminGroups)
         return "admin/role_mgr"
     }
+
+
 
     @GetMapping("add")
     fun add(model: Model): Any? {
@@ -64,6 +99,9 @@ class AdminController {
         return adminService.getById(id)
     }
 
+
+
+
     @PostMapping("add_save")
     @ResponseBody
     fun addSave(model: Model, admin: Admin?): Any? {
@@ -73,7 +111,9 @@ class AdminController {
         admin.userPassword?.let {
             admin.userPassword = MyPasswordEncoder().encode(it)
         }
+
         //
+
         adminService.runCatching {
             save(admin)
         }.onFailure {
@@ -85,8 +125,14 @@ class AdminController {
                          "msg" to errMsg)
         }
 
+
         return mapOf("result" to "ok")
     }
+
+
+
+
+
 
     @PostMapping("edit_save")
     @ResponseBody
@@ -98,6 +144,7 @@ class AdminController {
         if (!admin.userPassword.isNullOrEmpty()) {
             admin.userPassword = MyPasswordEncoder().encode(admin.userPassword!!)
         }
+
         // 执行保存
         adminService.runCatching {
             updateById(admin)
@@ -109,6 +156,13 @@ class AdminController {
         return mapOf("result" to "ok")
     }
 
+
+
+
+
+
+
+
     @GetMapping("del")
     fun del(id: Int?): Any? {
         id ?: return "redirect:/admin/list"
@@ -117,4 +171,8 @@ class AdminController {
 
         return "redirect:/admin/list"
     }
+
+
+
+
 }

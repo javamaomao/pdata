@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -42,16 +42,27 @@
                         </h3>
                     </div>
 
+
+                    <form action="search" method="get">
                     <div class="title_right">
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="关键字">
+
+
+                                <input type="text" class="form-control" placeholder="关键字" name="words" >
+
+
                                 <span class="input-group-btn">
-<button class="btn btn-default" type="button">搜索</button>
+               <!-- <button class="btn btn-default" type="button">搜索</button>-->
+                                     <input type="submit"  class="btn btn-default"  value="搜索"/>
+
 </span>
+
                             </div>
                         </div>
                     </div>
+
+                    </form>
                 </div>
 
                 <div class="clearfix"></div>
@@ -101,7 +112,7 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <td colspan="7">
+                                        <!--<td colspan="7">
                                             <p class="text-muted">
                                                 <span class="page-link" th:text="${' 当前是第' + admins.pageNum.toString() +'页，一共有'+ admins.pages+'页,一共有 '+ admins.total.toString() + '个用户'}"></span></p>
 
@@ -117,13 +128,32 @@
                                                     </ul>
                                                 </div>
                                             </div>
+                                        </td>-->
+
+                                        <td colspan="7">
+                                            <p class="text-muted">
+                                                <span class="page-link" th:text="${' 当前是第' + admins.current.toString() +'页，一共有'+ admins.pages+'页,一共有 '+ admins.total.toString() + '个用户'}"></span></p>
+
+                                            <div class="btn-group">
+                                                <a class="btn btn-default" type="button" th:href="${'?page='+(admins.current-1).toString()}">&laquo;</a>
+                                                <a class="btn btn-default" type="button" th:each="i: ${#numbers.sequence(1,admins.pages)}" th:classappend="${admins.current==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()}">1</a>
+                                                <a class="btn btn-default" type="button"  th:href="${'?page='+(admins.current+1).toString()}">&raquo;</a>
+                                                <div class="btn-group">
+                                                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"> 选择其他页 <span class="caret"></span> </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li th:each="i: ${#numbers.sequence(1,admins.pages)}" th:classappend="${admins.current==i?'':''}"><a th:href="*{'?page='+i}"  th:text="*{i}">Dropdown link 1</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </td>
+
                                     </tr>
                                     </tfoot>
                                 </table>
 
                                 <div>
-                                    <button type="button" class="btn btn-success" id="btn-add-admin">增加用户
+                                    <button type="button" class="btn btn-success" id="btn-add-admin">增加用户111
                                     </button>
                                 </div>
                             </div>
@@ -322,7 +352,7 @@
                 $addAdminModal.find(".modal-title").text("增加用户");
                 //
                 const modal = $(this);  //当前模态框
-                modal.find('#id').val("");
+                modal.find('#id').val("0");
                 modal.find('#userId').val("");
                 modal.find('#userName').val("");
                 modal.find('#userPassword').val("");
@@ -350,11 +380,26 @@
                     }
                 })
             ;
-            //swal( "删除确认" ,  "您确实要删除吗？" ,  "error" );
+
         });
 
 
+
+
+        // 搜索
+     /*   $(".btn-default").click(function(){
+           var wo=$("input:text").val();
+           alert(wo)
+
+        });
+*/
+
+
+
+
     });
+
+
 
 </script>
 </body>

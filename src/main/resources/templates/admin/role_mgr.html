@@ -82,7 +82,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="item: ${datas}" th:data-id="*{item.groupId}">
+                                    <tr th:each="item: ${datas.records}" th:data-id="*{item.groupId}">
                                         <td th:text="*{item.groupId}">@mdo</td>
                                         <td th:text="*{item.groupName}">Mark</td>
                                         <td th:text="*{item.groupAuth}">Otto</td>
@@ -95,25 +95,28 @@
                                     </tr>
                                     </tbody>
                                     <tfoot>
-                                    <tr>
-                                        <td colspan="7">
-                                            <p class="text-muted">
-                                                <span class="page-link" th:text="${' 当前是第' + datas.pageNum.toString() +'页，一共有'+ datas.pages+'页,一共有 '+ datas.total.toString() + '个用户'}"></span></p>
 
-                                            <div class="btn-group">
-                                                <a class="btn btn-default" type="button" th:href="${'?page='+(datas.pageNum-1).toString()}">&laquo;</a>
-                                                <a class="btn btn-default" type="button" th:each="i: ${#numbers.sequence(1,datas.pages)}" th:classappend="${datas.pageNum==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()}">1</a>
-                                                <a class="btn btn-default" type="button"  th:href="${'?page='+(datas.pageNum+1).toString()}">&raquo;</a>
-                                                <div class="btn-group">
-                                                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"> 选择其他页 <span class="caret"></span> </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li th:each="i: ${#numbers.sequence(1,datas.pages)}" th:classappend="${datas.pageNum==i?'':''}"><a th:href="*{'?page='+i}"  th:text="*{i}">Dropdown link 1</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+
+                                 <tr>
+                                     <td colspan="7">
+                                         <p class="text-muted">
+                                             <span class="page-link" th:text="${' 当前是第' + datas.current.toString() +'页，一共有'+ datas.pages+'页,一共有 '+ datas.total.toString() + '个用户'}"></span></p>
+
+                                         <div class="btn-group">
+                                             <a class="btn btn-default" type="button" th:href="${'?page='+(datas.current-1).toString()}">&laquo;</a>
+                                             <a class="btn btn-default" type="button" th:each="i: ${#numbers.sequence(1,datas.pages)}" th:classappend="${datas.current==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()}">1</a>
+                                             <a class="btn btn-default" type="button"  th:href="${'?page='+(datas.current+1).toString()}">&raquo;</a>
+                                             <div class="btn-group">
+                                                 <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"> 选择其他页 <span class="caret"></span> </button>
+                                                 <ul class="dropdown-menu">
+                                                     <li th:each="i: ${#numbers.sequence(1,datas.pages)}" th:classappend="${datas.current==i?'':''}"><a th:href="*{'?page='+i}"  th:text="*{i}">Dropdown link 1</a>
+                                                     </li>
+                                                 </ul>
+                                             </div>
+                                         </div>
+                                     </td>
+
+                                 </tr>
                                     </tfoot>
                                 </table>
 
@@ -155,59 +158,28 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userId">账号 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="userId" name="userId" required="required"
+                            <input type="text" id="groupName" name="groupName" required="required"
                                    class="form-control col-md-7 col-xs-12" placeholder="请输入您的账号">
                         </div>
                     </div>
+
+
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">昵称 <span
-                                class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="userName" name="userName" required="required"
-                                   class="form-control col-md-7 col-xs-12" placeholder="请输入您的昵称">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userPassword">密码 <span
-                                class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="password" id="userPassword" name="userPassword" required="required"
-                                   class="form-control col-md-7 col-xs-12">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">电话号码 <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="tel" name="tel" class="date-picker form-control col-md-7 col-xs-12"
-                                   required="required" type="text" placeholder="电话号码">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="groupId" class="control-label col-md-3 col-sm-3 col-xs-12">组</label>
+                        <label for="groupId" class="control-label col-md-3 col-sm-3 col-xs-12">权限范围</label>
                         <div class="col-md-7 col-xs-12">
-                            <select id="groupId" name="groupId" class="form-control" required>
-                                <option th:each="type : ${groups}" th:text="${type.groupName}" th:value="${type.groupId}"></option>
+                            <select id="groupAuth" name="groupAuth" class="form-control" required>
+
+
+                                <option value="ROLE_ADMIN">管理员</option>
+                                <option value="ROLE_USER">用户</option>
+
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">性别</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div id="gender" class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default" data-toggle-class="btn-primary"
-                                       data-toggle-passive-class="btn-default">
-                                    <input type="radio" id="sex_male" name="sex" value="1"> &nbsp; 男 &nbsp;
-                                </label>
-                                <label class="btn btn-primary" data-toggle-class="btn-primary"
-                                       data-toggle-passive-class="btn-default">
-                                    <input type="radio" id="sex_female" name="sex" value="0"> &nbsp; 女 &nbsp;
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+
+
+
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -303,13 +275,9 @@
                 const target = event.relatedTarget; //触发事件的对象
 
                 const modal = $(this);  //当前模态框
-                modal.find('#id').val(target.id);
-                modal.find('#userId').val(target.userId);
-                modal.find('#userName').val(target.userName);
-                modal.find('#tel').val(target.tel);
-                modal.find('#userPassword').val("");
-                modal.find('#groupId').val(target.groupId);
-                modal.find('#userPassword').attr("placeholder", "不修改密码请留空");
+                modal.find('#groupName').val(target.groupName);
+                modal.find('#groupAuth').val(target.groupAuth);
+
 
             } else {
                 $addAdminModal.data("url", "add_save");
@@ -317,18 +285,12 @@
                 $addAdminModal.find(".modal-title").text("增加用户");
                 //
                 const modal = $(this);  //当前模态框
-                modal.find('#id').val("");
-                modal.find('#userId').val("");
-                modal.find('#userName').val("");
-                modal.find('#userPassword').val("");
-                modal.find('#userPassword').attr("placeholder", "请输入密码");
-                modal.find('#tel').val("");
+                modal.find('#groupName').val(target.groupName);
+                modal.find('#groupAuth').val(target.groupAuth);
+
             }
 
-            //modal.find('#sex').val(btnThis.sex);
-            // var modalId = btnThis.data('id');   //解析出data-id的内容
-            // var content = btnThis.closest('tr').find('td').eq(2).text();
-            // modal.find('.content').val(content);
+
         });
 
         // 删除管理员信息
