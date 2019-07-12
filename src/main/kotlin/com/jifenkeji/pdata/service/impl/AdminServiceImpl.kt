@@ -24,22 +24,33 @@ import javax.annotation.Resource
  */
 @Service
 open class AdminServiceImpl : ServiceImpl<AdminMapper, Admin>(), IAdminService {
-    override fun selectPage(pageIndex: Long?, pageSize: Long?): IPage<Admin> {
-        return baseMapper.selectPage(Page<Admin>(pageIndex ?: 1, pageSize ?: 20), null)
-    }
-
     //
     @Resource
     lateinit var adminGroupMapper: AdminGroupMapper
     //
+    override fun selectPage(pageIndex: Long?, pageSize: Long?): IPage<Admin> {
+        return baseMapper.selectPage(Page<Admin>(pageIndex ?: 1, pageSize ?: 20), null)
+    }
+
+
+    //
     override fun findRolesByAdminId(username: String): List<String>? {
-        val admin = baseMapper.selectOne(QueryWrapper<Admin>().apply { eq("user_name", username) })
+        val admin = baseMapper.selectOne(QueryWrapper<Admin>().apply { eq("user_id", username) })
         //
         val adminGroup = adminGroupMapper.selectOne(QueryWrapper<AdminGroup>().apply { eq("group_id", admin.groupId) })
         val list = adminGroup.groupAuth?.split('|')
 
         return list
     }
+
+
+    override fun searchpage(pageIndex: Long?, pageSize: Long? ,words :String?):IPage<Admin>{
+
+
+        return baseMapper.selectPage(Page<Admin>(pageIndex ?: 1, pageSize ?: 20),
+                QueryWrapper<Admin>().apply{ like("user_name",words).or().like("user_id",words)})
+    }
+
 
 
 

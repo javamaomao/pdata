@@ -28,7 +28,7 @@ class CustomAdminDetailsService : UserDetailsService {
     override fun loadUserByUsername(username: String): UserDetails {
         logger.info("获取管理员信息-->管理员名为:$username")
         val wrapper = QueryWrapper<Admin>().apply {
-            eq("user_name", username)
+            eq("user_id", username)
         }
 
         val user = adminService!!.getOne(wrapper, false)
