@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>欢迎语管理 | 增加欢迎语</title>
+
+    <!-- Bootstrap -->
+    <link href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/assets/css/custom.min.css" rel="stylesheet">
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div th:replace="common::left_col"></div>
+
+        <!-- top navigation -->
+        <div th:replace="common::top_nav"></div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>欢迎语列表
+                            <small>这里可以对欢迎语进行管理</small>
+                        </h3>
+                    </div>
+
+                    <div class="title_right">
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="关键字">
+                                <span class="input-group-btn">
+<button class="btn btn-default" type="button">搜索</button>
+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>欢迎语列表
+                                    <small>所有欢迎语</small>
+                                </h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>编号</th>
+                                        <th>名称</th>
+                                        <th>文本</th>
+                                        <th>类型</th>
+                                        <th>开始时间</th>
+                                        <th>结束时间</th>
+                                        <th>关键字1</th>
+                                        <th>关键字2</th>
+                                        <th>链接1</th>
+                                        <th>链接2</th>
+                                        <th>状态</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="item: ${datas.records}" th:data-id="*{item.id}">
+                                        <td th:text="*{item.serialNumber}">编号</td>
+                                        <td th:text="*{item.nameOf}">名称</td>
+                                        <td th:text="*{item.text}">文本</td>
+                                        <td th:text="*{item.type}">类型</td>
+                                        <td th:text="*{item.startTime}">开始时间</td>
+                                        <td th:text="*{item.endOfTime}">结束时间</td>
+                                        <td th:text="*{item.1Keyword}">关键字1</td>
+                                        <td th:text="*{item.keyword2}">关键字2</td>
+                                        <td th:text="*{item.link1}">链接1</td>
+                                        <td th:text="*{item.link2}">链接2</td>
+                                        <td th:text="*{item.state}">状态</td>
+
+                                        <td>
+                                            <button class="btn btn-info btn-modify-item">修改</button>
+                                            <button class="btn btn-danger btn-delete-item">删除</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="7">
+                                            <p class="text-muted">
+                                                <span class="page-link" th:text="${' 当前是第' + datas.current.toString() +'页，一共有'+ datas.pages+'页,一共有 '+ datas.total.toString() + '个'}"></span></p>
+
+                                            <div class="btn-group" th:if="${datas.pages>0}">
+                                                <a class="btn btn-default" type="button" th:href="${'?page='+(datas.current-1).toString()}">&laquo;</a>
+                                                <a class="btn btn-default" type="button" th:each="i: ${#numbers.sequence(1,datas.pages)}" th:classappend="${datas.current==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()}">1</a>
+                                                <a class="btn btn-default" type="button"  th:href="${'?page='+(datas.current+1).toString()}">&raquo;</a>
+                                                <div class="btn-group">
+                                                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button"> 选择其他页 <span class="caret"></span> </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li th:each="i: ${#numbers.sequence(1,datas.pages)}" th:classappend="${datas.current==i?'':''}"><a th:href="*{'?page='+i}"  th:text="*{i}">Dropdown link 1</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+
+                                <div>
+                                    <button type="button" class="btn btn-success" id="btn-add-item">增加欢迎语
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer th:replace="common::footer"></footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- Large modal -->
+
+<div class="modal fade" id="add-item-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <input type="hidden" id="id" name="id"/>
+        <div class="modal-content">
+            <form id="add-form" data-parsley-validate class="form-horizontal form-label-left" action="/welcome-to-language/add-save" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">增加欢迎语</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="serialNumber">编号 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="serialNumber" name="serialNumber" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nameOf">名称 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="nameOf" name="nameOf" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text">文本 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="text" name="text" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="type">类型 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="type" name="type" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="startTime">开始时间 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="startTime" name="startTime" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endOfTime">结束时间 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="endOfTime" name="endOfTime" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="1Keyword">关键字1 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="1Keyword" name="1Keyword" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="keyword2">关键字2 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="keyword2" name="keyword2" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="link1">链接1 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="link1" name="link1" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="link2">链接2 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="link2" name="link2" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state">状态 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="state" name="state" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button class="btn btn-primary" type="reset">重置</button>
+                            <button type="submit" class="btn btn-success">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="/assets/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="/assets/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="/assets/vendors/nprogress/nprogress.js"></script>
+<!-- iCheck -->
+<script src="/assets/vendors/iCheck/icheck.min.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="/assets/js/custom.min.js"></script>
+
+<script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        //
+        var $addItemModal = $('#add-item-modal');
+
+        // 增加欢迎语信息
+        $("#btn-add-item").click(function(){
+            $addItemModal.data("edit_mode", false);
+            $addItemModal.modal();
+        });
+
+        // 提交表单
+        $("#btn-add-item-submit").click(function () {
+            var formData = $('#add-form').serialize();
+            var url = $addItemModal.data("url");
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: url,
+                data: formData,
+                success: function (result) {
+                    if (result.result === "ok") {
+                        $('#add-item-modal').modal('hide');//隐藏modal
+                        location.reload();
+                    } else {
+                        alert("数据保存失败," + result.msg)
+                    }
+                },
+                error: function(data) {
+                    alert("error:"+data.responseText);
+                }
+            });
+        });
+
+        // 修改欢迎语信息
+        $(".btn-modify-item").click(function () {
+            $id = $(this).closest('tr').attr("data-id");
+            $.get({dataType: "json",
+                url: "get?id=" + $id,
+                success: function(result){
+                    //
+                    if (result == null) {
+                        alert("失败了");
+                    } else {
+                        // alert(JSON.stringify(result));
+                        $addItemModal.data("edit_mode", true);
+                        $addItemModal.modal({show: true}, result);
+
+                    }
+                },
+                error: function(data){
+                    alert("失败了");
+                }
+            })
+        });
+
+        // 绑定弹框显示事件
+        $addItemModal.on('show.bs.modal', function (event) {
+            $editMode = $('#add-item-modal').data("edit_mode");
+            var modal = $(this);  //当前模态框
+            if ($editMode === true) {
+                $addItemModal.data("url", "edit_save");
+                //
+                $addItemModal.find(".modal-title").text("修改欢迎语");
+
+                var target = event.relatedTarget; //触发事件的对象
+
+                modal.find('#id').val(target.id);
+                modal.find('#serialNumber').val(target.serialNumber);
+                modal.find('#nameOf').val(target.nameOf);
+                modal.find('#text').val(target.text);
+                modal.find('#type').val(target.type);
+                modal.find('#startTime').val(target.startTime);
+                modal.find('#endOfTime').val(target.endOfTime);
+                modal.find('#1Keyword').val(target.1Keyword);
+                modal.find('#keyword2').val(target.keyword2);
+                modal.find('#link1').val(target.link1);
+                modal.find('#link2').val(target.link2);
+                modal.find('#state').val(target.state);
+
+            } else {
+                $addItemModal.data("url", "add_save");
+                //
+                $addItemModal.find(".modal-title").text("增加欢迎语");
+                //
+                modal.find('#serialNumber').val('');
+                modal.find('#nameOf').val('');
+                modal.find('#text').val('');
+                modal.find('#type').val('');
+                modal.find('#startTime').val('');
+                modal.find('#endOfTime').val('');
+                modal.find('#1Keyword').val('');
+                modal.find('#keyword2').val('');
+                modal.find('#link1').val('');
+                modal.find('#link2').val('');
+                modal.find('#state').val('');
+            }
+
+            //modal.find('#sex').val(btnThis.sex);
+            // var modalId = btnThis.data('id');   //解析出data-id的内容
+            // var content = btnThis.closest('tr').find('td').eq(2).text();
+            // modal.find('.content').val(content);
+        });
+
+        // 删除欢迎语信息
+        $(".btn-delete-item").click(function () {
+            swal("您确实要删除吗?", {
+                icon: "warning",
+                dangerMode: true,
+                buttons: ["取消", "确认"],
+            })
+                .then( (value) => {
+                    if (value === true) {
+                        $id = $(this).closest('tr').attr("data-id");
+                        location.href="/welcome-to-language/del?id=" + $id;
+                    }
+                })
+            ;
+            //swal( "删除确认" ,  "您确实要删除吗？" ,  "error" );
+        });
+
+
+    });
+
+</script>
+</body>
+</html>
