@@ -1,7 +1,6 @@
 package com.jifenkeji.pdata.controller
 
 import com.jifenkeji.pdata.entity.Admin
-import com.jifenkeji.pdata.service.IAdminGroupService
 import com.jifenkeji.pdata.service.IAdminService
 import com.jifenkeji.pdata.utils.MyPasswordEncoder
 import org.springframework.beans.factory.annotation.Autowired
@@ -22,8 +21,6 @@ class AdminController {
 
     @Autowired
     lateinit var adminService: IAdminService
-    @Autowired
-    lateinit var adminGroupService: IAdminGroupService
     @Autowired
     lateinit var adminRoleService: IAdminRoleService
 

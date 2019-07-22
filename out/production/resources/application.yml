@@ -63,9 +63,14 @@ spring:
     #连接超时时间
     timeout: 10000ms
 
-mybatis:
-  mapperLocations: classpath:mapper/*Mapper.xml
-  typeAliasesPackage: com.jifenkeji.pdata.entity
+#mybatis-plus:
+#  mapper-locations: classpath*:com/jifenkeji/pdata/mapper/xml/*.xml
+#mybatis:
+#  type-aliases-package: com.jifenkeji.pdata.entity
+#  mapper-locations: classpath:com/jifenkeji/pdata/mapper/xml/*Mapper.xml
+#
+#  mapperLocations: classpath:com/jifenkeji/pdata/mapper/xml/*Mapper.xml
+#  typeAliasesPackage: com.jifenkeji.pdata.entity
 #
 ## 与mybatis整合
 ##扫描entrity包

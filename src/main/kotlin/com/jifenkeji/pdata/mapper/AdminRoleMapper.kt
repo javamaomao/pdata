@@ -1,7 +1,14 @@
-package com.jifenkeji.pdata.mapper
+package com.jifenkeji.pdata.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper
-import com.jifenkeji.pdata.entity.AdminRole
+import com.jifenkeji.pdata.entity.AdminRole;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-interface AdminRoleMapper : BaseMapper<AdminRole> {
-}
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author yangguo
+ * @since 2019-07-22
+ */
+interface AdminRoleMapper : BaseMapper<AdminRole>
