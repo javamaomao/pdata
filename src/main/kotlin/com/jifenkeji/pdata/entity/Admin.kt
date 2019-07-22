@@ -1,7 +1,6 @@
 package com.jifenkeji.pdata.entity
 
-import com.baomidou.mybatisplus.annotation.TableField
-import com.baomidou.mybatisplus.annotation.TableName
+import com.baomidou.mybatisplus.annotation.*
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import java.io.Serializable
@@ -51,12 +50,17 @@ class Admin : UserDetails {
         return true
     }
 
+    override fun toString(): String {
+        return "Admin(authoritiesList=$authoritiesList, id=$id, userId=$userId, userName=$userName, userPassword=$userPassword, groupId=$groupId, groupName=$groupName, sex=$sex, tel=$tel, status=$status)"
+    }
+
     //
     @TableField(exist = false)
     var authoritiesList: ArrayList<GrantedAuthority>? = null
     /**
      * id
      */
+    @TableId(value = "id",type = IdType.AUTO)
     var id: Int? = null
     /**
      * 用户id
@@ -77,9 +81,12 @@ class Admin : UserDetails {
      * 组id
      */
     var groupId: Int? = null
-
-    @TableField(exist = false)
+    /*
+    组名
+     */
+   @TableField(exist = false)
     var groupName: String? = null
+
     /**
      * 性别
      */
@@ -89,17 +96,12 @@ class Admin : UserDetails {
      * 电话
      */
     var tel: String? = null
+    /*
+    状态
+     */
+    var status :String? =null
 
 
 
-    override fun toString(): String {
-        return "Admin{" +
-        "userId=" + userId +
-        ", userName=" + userName +
-        ", userPassword=" + userPassword +
-        ", groupId=" + groupId +
-        ", sex=" + sex +
-        ", tel=" + tel +
-        "}"
-    }
+
 }
