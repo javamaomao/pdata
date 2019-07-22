@@ -1,5 +1,6 @@
 package com.jifenkeji.pdata.controller;
 
+import com.jifenkeji.pdata.entity.Admin
 import com.jifenkeji.pdata.entity.AdminGroup
 import com.jifenkeji.pdata.service.IAdminGroupService
 import org.springframework.ui.Model
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import javax.annotation.Resource
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ResponseBody
 
 /**
  * <p>
@@ -27,6 +29,30 @@ class AdminGroupController {
 
     @Resource
     lateinit var adminGroupService: IAdminGroupService
+
+
+
+
+    @GetMapping("role_mgr")
+
+    fun ruleMgr(model: Model, page: Long?, size: Long?): Any? {
+        val adminGroups = adminGroupService.selectPage(page, size)
+
+        var s:Admin=Admin()
+        if(s.equals(null)){
+
+        }
+        model.set("datas", adminGroups)
+        return "admin/role_mgr"
+    }
+
+
+    fun a() :Any?={
+        var s:Int =1
+
+    }
+
+
 
     /**
     * <p>
@@ -129,4 +155,7 @@ class AdminGroupController {
 
         return "redirect:/$BasePath/list"
     }
+
+
+
 }

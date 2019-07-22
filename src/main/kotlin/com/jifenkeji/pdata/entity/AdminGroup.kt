@@ -25,12 +25,15 @@ class AdminGroup : Serializable {
 
     var groupAuth: String? = null
 
+    var groupStatus :String?=null
+
 
     override fun toString(): String {
         return "AdminGroup{" +
         "groupId=" + groupId +
         ", groupName=" + groupName +
         ", groupAuth=" + groupAuth +
+         ", groupStatus=" + groupStatus +
         "}"
     }
 }
