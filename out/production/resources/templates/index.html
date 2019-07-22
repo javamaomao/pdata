@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>企业私域数据管理平台</title>
+
+    <!-- Bootstrap -->
+    <link href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="/assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="/assets/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="/assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/assets/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div th:replace="common::left_col"></div>
+
+        <!-- top navigation -->
+        <div th:replace="common::top_nav"></div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+          <div class="row">
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                  <h2>用户获取</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <div class="btn-group-vertical col-md-12 col-sm-12 col-xs-12">
+                    <button type="button" class="btn btn-default btn-lg"><a href="activity/product_code_list.html">产品码招募活动</a></button>
+                    <button class="btn btn-default" type="button">门店码招募活动</button>
+                    <button class="btn btn-default" type="button">推广码招募活动</button>
+                    <button class="btn btn-default" type="button">固定触点码招募活动</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile fixed_height_320 overflow_hidden">
+                <div class="x_title">
+                  <h2>用户互动</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <div class="btn-group-vertical col-md-12 col-sm-12 col-xs-12">
+                    <button class="btn btn-default" type="button">非自动化的互动活动</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                  <h2>业务报表</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <div class="btn-group-vertical col-md-12 col-sm-12 col-xs-12">
+                    <button class="btn btn-default" type="button">私域数据仪表盘</button>
+                    <button class="btn btn-default" type="button">用户分析</button>
+                    <button class="btn btn-default" type="button">活动分析</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="text-align: center">
+              <button type="button" class="btn btn-default btn-lg" ><a href="form.html">系统设置</a></button>
+              <button type="button" class="btn btn-default btn-lg" >退出登录</button>
+            </div>
+
+
+
+
+          </div>
+
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer th:replace="common::footer"></footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/assets/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="/assets/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/assets/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="/assets/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="/assets/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="/assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="/assets/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="/assets/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="/assets/vendors/Flot/jquery.flot.js"></script>
+    <script src="/assets/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="/assets/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="/assets/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="/assets/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="/assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="/assets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="/assets/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="/assets/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="/assets/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="/assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="/assets/vendors/moment/min/moment.min.js"></script>
+    <script src="/assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/assets/js/custom.min.js"></script>
+	
+  </body>
+</html>

@@ -8,9 +8,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.core.metadata.IPage
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page
-import com.jifenkeji.pdata.entity.AdminGroup
-import com.jifenkeji.pdata.mapper.AdminGroupMapper
-import org.springframework.beans.BeanUtils
+import com.jifenkeji.pdata.entity.AdminRole
+import com.jifenkeji.pdata.mapper.AdminRoleMapper
 import javax.annotation.Resource
 
 
@@ -24,23 +23,44 @@ import javax.annotation.Resource
  */
 @Service
 open class AdminServiceImpl : ServiceImpl<AdminMapper, Admin>(), IAdminService {
+    //
+
+    @Resource
+    lateinit var  adminRoleMapper :AdminRoleMapper
+
+    @Resource
+    lateinit var adminMapper :AdminMapper
+    //
     override fun selectPage(pageIndex: Long?, pageSize: Long?): IPage<Admin> {
-        return baseMapper.selectPage(Page<Admin>(pageIndex ?: 1, pageSize ?: 20), null)
+        return baseMapper.selectPage(Page<Admin>(pageIndex ?: 1, pageSize ?: 10), null)
     }
 
-    //
-    @Resource
-    lateinit var adminGroupMapper: AdminGroupMapper
-    //
-    override fun findRolesByAdminId(username: String): List<String>? {
-        val admin = baseMapper.selectOne(QueryWrapper<Admin>().apply { eq("user_name", username) })
-        //
-        val adminGroup = adminGroupMapper.selectOne(QueryWrapper<AdminGroup>().apply { eq("group_id", admin.groupId) })
-        val list = adminGroup.groupAuth?.split('|')
 
+    override fun findRolesByAdminId(username: String): List<String>? {
+         val admin=baseMapper.selectOne(QueryWrapper<Admin>().apply{eq("user_id",username)})
+        val adminRole=adminRoleMapper.selectOne(QueryWrapper<AdminRole>().apply{eq("role_id",admin.groupId)})
+        val list =adminRole.roleAuth?.split(',')
         return list
     }
 
 
+    override fun searchpage(pageIndex: Long?, pageSize: Long? ,words :String?):IPage<Admin>{
+        return baseMapper.selectPage(Page<Admin>(pageIndex ?: 1, pageSize ?: 10),
+                QueryWrapper<Admin>().apply{ like("user_name",words).or().like("user_id",words)})
+    }
 
+
+    /*override fun s(pageIndex: Long?, pageSize: Long?): IPage<Admin> {
+              return  adminMapper.se()
+        // IPage<T> selectPage(IPage<T> page, @Param(Constants.WRAPPER) Wrapper<T> queryWrapper);
+       // return baseMapper.selectPage(Page<Admin>(pageIndex ?: 1, pageSize ?: 20), null)
+    }*/
+    override fun se(): Admin {
+        return adminMapper.se()
+    }
+
+
+    override fun updateByidSta(admin: Admin?) {
+        adminMapper.updateByidSta(admin)
+    }
 }
