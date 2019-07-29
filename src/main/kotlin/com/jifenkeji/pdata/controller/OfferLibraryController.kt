@@ -44,9 +44,16 @@ class OfferLibraryController {
         val datas = offerLibraryService.page(Page<OfferLibrary>(page ?: 1, size ?: 10), null)
 
         m.set("datas", datas)
-        return "$BasePath/list"
+        return "$BasePath/offer"
     }
 
+    @GetMapping("search")
+    fun search(m:Model,page: Long?,size: Long?,name:String?):Any{
+        val datas=offerLibraryService.search(page,size,name?:"")
+        m.set("name",name?:"")
+        m.set("datas",datas)
+        return "$BasePath/offer"
+    }
     /**
     * <p>
     * 增加 offer库 数据的表单
@@ -86,12 +93,20 @@ class OfferLibraryController {
     * @author yangguo
     * @since 2019-07-22
     */
-    @PostMapping("/add-save")
+    @PostMapping("/add_save")
+    @ResponseBody
     fun addSave(m: Model, offerLibrary: OfferLibrary): Any {
 
-        offerLibraryService.save(offerLibrary)
+       /* offerLibraryService.save(offerLibrary)
 
-        return "redirect:/$BasePath/list"
+        return "redirect:/$BasePath/list"*/
+        offerLibraryService.runCatching {
+            save(offerLibrary)
+        }.onFailure {
+            return mapOf("result" to "error",
+                    "msg" to "发生错误")
+        }
+        return mapOf("result" to "ok")
     }
 
     /**
@@ -105,10 +120,8 @@ class OfferLibraryController {
     @GetMapping("/edit")
     fun edit(m: Model, id: Int?): Any {
 
-        //
         val data = offerLibraryService.getById(id ?: 1)
         m.set("data", data)
-
         return "$BasePath/edit"
     }
 
@@ -120,12 +133,22 @@ class OfferLibraryController {
     * @author yangguo
     * @since 2019-07-22
     */
-    @PostMapping("/edit-save")
+    @PostMapping("/edit_save")
+    @ResponseBody
     fun editSave(m: Model, offerLibrary: OfferLibrary): Any {
-
+       /* println("修改数据")
         offerLibraryService.updateById(offerLibrary)
+        return "redirect:/$BasePath/list"*/
 
-        return "redirect:/$BasePath/list"
+        offerLibrary ?: return mapOf("result" to "error", "msg" to "参数错误")
+        // 执行保存
+        offerLibraryService.runCatching {
+            updateById(offerLibrary)
+        }.onFailure {
+            return mapOf("result" to "error",
+                    "msg" to "发生错误")
+        }
+        return mapOf("result" to "ok")
     }
 
     /**

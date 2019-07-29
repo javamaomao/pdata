@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>私域数据 | </title>
+
+    <!-- Bootstrap -->
+    <link href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/assets/css/custom.min.css" rel="stylesheet">
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div th:replace="common::left_col"></div>
+
+        <!-- top navigation -->
+        <div th:replace="common::top_nav"></div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+
+            <div class="">
+
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>系统设置
+                        </h3>
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>日志管理</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <div class="title_right">
+                                            <div class="col-md-5 col-sm-5 col-xs-15  pull-right top_search">
+                                                <form action="search" method="get" >
+                                                    <div class="form-group">
+                                                        <div class="col-lg-5">
+                                                            <input type="text" class="form-control" placeholder="请输入账户名"  name="goodsna"  id="goodsna" th:value="${goodsna}" >
+                                                        </div>
+                                                        <div class="col-lg-5">
+                                                            <input type="text" class="form-control" placeholder="请输入手机号"  name="goodscat"  id="goodscat" th:value="${goodscat}">
+                                                        </div>
+                                                        <div>
+                                                            <button type="submit" class="btn btn-primary ">搜索</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <thead >
+                                    <tr style="background-color:#4B0082">
+                                        <th></th>
+                                        <th style="color:white;text-align:center;" >活动名称</th>
+                                        <th style="color:white;text-align:center;" >操作账户</th>
+                                        <th style="color:white;text-align:center;" >手机号码</th>
+                                        <th style="color:white;text-align:center;" >操作时间</th>
+                                        <th style="color:white;text-align:center;" >操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:data-id="1">
+                                        <td></td>
+                                        <td style="text-align:center;">4月活动</td>
+                                        <td style="text-align:center;">张三</td>
+                                        <td style="text-align:center;">185626646</td>
+                                        <td style="text-align:center;">2019-09-30 06:45:23</td>
+                                        <td style="text-align:center;">
+                                            <button class="btn btn-danger btn-delete-item">删除</button>
+                                            <button class="btn btn-danger btn-delete-item">修改</button>
+                                        </td>
+                                    </tr>
+                                    <tr th:data-id="1">
+                                        <td></td>
+                                        <td style="text-align:center;">4月活动</td>
+                                        <td style="text-align:center;">张三</td>
+                                        <td style="text-align:center;">185626646</td>
+                                        <td style="text-align:center;">2019-09-30 06:45:23</td>
+                                        <td style="text-align:center;">
+                                            <button class="btn btn-danger btn-delete-item">删除</button>
+                                            <button class="btn btn-danger btn-modify-item">修改</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+
+                                    <tr>
+                                        <td colspan="7" align="right">
+                                        <div >
+                                            <div >
+                                                <div >
+                                                    <a class="btn btn-default" type="button"  disabled="disabled">&laquo;上一页</a>
+                                                    <a class="btn btn-default btn-danger" type="button"  >1</a>
+                                                    <a class="btn btn-default " type="button"  >2</a>
+                                                    <a class="btn btn-default " type="button"  >3</a>
+                                                    <a class="btn btn-default " type="button"  >4</a>
+                                                    <a class="btn btn-default" type="button" >下一页&raquo;</a>
+
+                                                    <div class="btn-group ">
+                                                        <form method="get" action="">
+                                                            <div  class="btn-group col-lg-12" >
+                                                                共4页，前往第<input type="text" id="a" name="s" style="width:20px;">页
+                                                                <input type="submit" style="width:40px;" value="确定"/>
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <footer th:replace="common::footer"></footer>
+    </div>
+</div>
+
+<!-- Large modal -->
+
+<div class="modal fade" id="add-admin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="add-form" data-parsley-validate class="form-horizontal form-label-left">
+                <input type="hidden" id="id" name="id"/>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">修改</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userId">活动名 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="name" name="userId" required="required"
+                                   class="form-control col-md-7 col-xs-12" placeholder="请输入活动名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="userName">账户<span
+                                class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="user" name="userName" required="required"
+                                   class="form-control col-md-7 col-xs-12" placeholder="请输入账户">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">手机号码 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="tel" name="tel" class="date-picker form-control col-md-7 col-xs-12"
+                                   required="required" type="text" placeholder="手机号码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">操作时间 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input  id="time" name="tel" class="date-picker form-control col-md-7 col-xs-12"
+                                   required="required" type="date" >
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button class="btn btn-primary" type="reset">重置</button>
+                    <button type="button" class="btn btn-success" id="btn-add-admin-submit">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="/assets/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="/assets/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="/assets/vendors/nprogress/nprogress.js"></script>
+<!-- iCheck -->
+<script src="/assets/vendors/iCheck/icheck.min.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="/assets/js/custom.min.js"></script>
+
+<script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script >
+    $(document).ready(function() {
+        const $addAdminModal = $('#add-admin-modal');
+        // 增加管理员信息
+        $("#btn-add-admin").click(function(){
+            $addAdminModal.data("edit_mode", false);
+            $addAdminModal.modal();
+        });
+
+        // 提交表单
+        $("#btn-add-admin-submit").click(function () {
+            const formData = $('#add-form').serialize();
+            const url = $addAdminModal.data("url");
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: url,
+                data: formData,
+                success: function (result) {
+                    if (result.result === "ok") {
+                        $('#add-admin-modal').modal('hide');//隐藏modal
+                        location.reload();
+                    } else {
+                        alert("数据保存失败," + result.msg)
+                    }
+                },
+                error: function(data) {
+                    alert("error:"+data.responseText);
+                }
+            });
+        });
+
+        // 修改管理员信息
+        $(".btn-modify-item").click(function () {
+            $id = $(this).closest('tr').attr("data-id");
+            $.get({dataType: "json",
+                url: "get_info?id=" + $id,
+                success: function(result){
+                    if (result == null) {
+                        alert("失败了");
+                    } else {
+                        // alert(JSON.stringify(result));
+                      //  $("#add-form").find("#userId").val(result.userId);
+                        $addAdminModal.data("edit_mode", true);
+                        $addAdminModal.modal({show: true}, result);
+
+                    }
+                },
+                error: function(data){
+
+                }
+            })
+        });
+
+        // 绑定弹框显示事件
+        $addAdminModal.on('show.bs.modal', function (event) {
+            $editMode = $('#add-admin-modal').data("edit_mode");
+            if ($editMode === true) {
+                //  alert($editMode)
+                $addAdminModal.data("url", "edit_save");
+                $addAdminModal.find(".modal-title").text("修改用户");
+                const target = event.relatedTarget; //触发事件的对象
+                const modal = $(this);  //当前模态框
+                modal.find('#name').val("");
+                modal.find('#user').val("");
+                modal.find('#tel').val("");
+                modal.find('#time').val("");
+            }
+        });
+
+        // 删除管理员信息
+        $(".btn-delete-item").click(function () {
+            swal("您确实要删除吗?", {
+                icon: "warning",
+                dangerMode: true,
+                buttons: ["取消", "确认"],
+            })
+                .then( (value) => {
+                    if (value === true) {
+                        $id = $(this).closest('tr').attr("data-id");
+                        alert($id)
+                        location.href="/admin/del?id=" + $id;
+                    }
+                })
+            ;
+        });
+    });
+</script>
+</body>
+</html>

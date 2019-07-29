@@ -44,8 +44,21 @@ class FacadeController {
         val datas = facadeService.page(Page<Facade>(page ?: 1, size ?: 10), null)
 
         m.set("datas", datas)
-        return "$BasePath/list"
+        return "$BasePath/facade"
     }
+
+    /*
+    搜索
+     */
+    @GetMapping("search")
+    fun search(m:Model,page:Long?,size:Long?,storecode:String?,storename:String?):Any?{
+        val datas=facadeService.search(page,size,storecode?:"",storename?:"")
+       m.set("storename",storename?:"")
+        m.set("storecode",storecode?:"")
+        m.set("datas",datas)
+        return "$BasePath/facade"
+    }
+
 
     /**
     * <p>

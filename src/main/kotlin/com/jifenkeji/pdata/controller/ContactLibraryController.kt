@@ -5,13 +5,11 @@ import com.jifenkeji.pdata.service.IContactLibraryService
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.PostMapping
 import javax.annotation.Resource
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page
 import org.springframework.web.bind.annotation.ResponseBody
-
 import org.springframework.stereotype.Controller;
 
 /**
@@ -44,9 +42,17 @@ class ContactLibraryController {
         val datas = contactLibraryService.page(Page<ContactLibrary>(page ?: 1, size ?: 10), null)
 
         m.set("datas", datas)
-        return "$BasePath/list"
+        return "$BasePath/contact"
     }
 
+    @GetMapping("search")
+    fun search(m:Model,page:Long?,size: Long?,name:String?):Any{
+        val datas=contactLibraryService.search(page,size,name?:"")
+        m.set("name",name?:"")
+        m.set("datas",datas)
+        return "$BasePath/contact"
+
+    }
     /**
     * <p>
     * 增加 触点库 数据的表单
@@ -86,12 +92,20 @@ class ContactLibraryController {
     * @author yangguo
     * @since 2019-07-22
     */
-    @PostMapping("/add-save")
-    fun addSave(m: Model, contactLibrary: ContactLibrary): Any {
+    @PostMapping("/add_save")
+    @ResponseBody
+    fun addSave(m: Model, contactLibrary: ContactLibrary): Any? {
 
-        contactLibraryService.save(contactLibrary)
+        /*contactLibraryService.save(contactLibrary)
+        return "redirect:/$BasePath/list"*/
 
-        return "redirect:/$BasePath/list"
+        contactLibraryService.runCatching {
+            save(contactLibrary)
+        }.onFailure {
+            return mapOf("result" to "error",
+                    "msg" to "发生错误")
+        }
+        return mapOf("result" to "ok")
     }
 
     /**
@@ -120,12 +134,23 @@ class ContactLibraryController {
     * @author yangguo
     * @since 2019-07-22
     */
-    @PostMapping("/edit-save")
-    fun editSave(m: Model, contactLibrary: ContactLibrary): Any {
+    @PostMapping("/edit_save")
+    @ResponseBody
+    fun editSave(m: Model, contactLibrary: ContactLibrary): Any? {
 
-        contactLibraryService.updateById(contactLibrary)
+      /*  contactLibraryService.updateById(contactLibrary)
+        return "redirect:/$BasePath/list"*/
 
-        return "redirect:/$BasePath/list"
+
+        contactLibrary ?: return mapOf("result" to "error", "msg" to "参数错误")
+        // 执行保存
+        contactLibraryService.runCatching {
+            updateById(contactLibrary)
+        }.onFailure {
+            return mapOf("result" to "error",
+                    "msg" to "发生错误")
+        }
+        return mapOf("result" to "ok")
     }
 
     /**

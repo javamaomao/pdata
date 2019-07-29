@@ -3,6 +3,7 @@ package com.jifenkeji.pdata.mapper;
 import com.jifenkeji.pdata.entity.AdminRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+
 /**
  * <p>
  *  Mapper 接口
@@ -11,4 +12,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author yangguo
  * @since 2019-07-22
  */
-interface AdminRoleMapper : BaseMapper<AdminRole>
+interface AdminRoleMapper : BaseMapper<AdminRole> {
+    // fun selectPage(page: Page<AdminRole>, run: Unit): IPage<AdminRole>?
+}

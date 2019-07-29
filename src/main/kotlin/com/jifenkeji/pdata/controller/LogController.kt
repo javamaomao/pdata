@@ -39,12 +39,13 @@ class LogController {
     * @since 2019-07-22
     */
     @GetMapping("/", "", "list")
+    @ResponseBody
     fun list(m: Model, page: Long?, size: Long?): Any {
-
         val datas = logService.page(Page<Log>(page ?: 1, size ?: 10), null)
-
+       println(datas)
         m.set("datas", datas)
-        return "$BasePath/list"
+        return datas
+       // return "$BasePath/list"
     }
 
     /**
@@ -57,10 +58,8 @@ class LogController {
     */
     @GetMapping("/add")
     fun add(m: Model): Any {
-        //
         val data = Log()
         m.set("data", data)
-
         return "$BasePath/add"
     }
 
@@ -82,13 +81,13 @@ class LogController {
     * <p>
     * 增加记录到 日志 表中
     * </p>
-    *
     * @author yangguo
     * @since 2019-07-22
     */
-    @PostMapping("/add-save")
+    @PostMapping("/add_save")
     fun addSave(m: Model, log: Log): Any {
 
+        println(log.operatingTime)
         logService.save(log)
 
         return "redirect:/$BasePath/list"

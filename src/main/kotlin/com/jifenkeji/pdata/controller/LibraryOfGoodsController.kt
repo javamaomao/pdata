@@ -40,11 +40,24 @@ class LibraryOfGoodsController {
     */
     @GetMapping("/", "", "list")
     fun list(m: Model, page: Long?, size: Long?): Any {
-
         val datas = libraryOfGoodsService.page(Page<LibraryOfGoods>(page ?: 1, size ?: 10), null)
-
         m.set("datas", datas)
-        return "$BasePath/list"
+        return "$BasePath/goods"
+    }
+
+
+    /*
+    搜索
+     */
+    @GetMapping("search")
+    fun search(m:Model,page:Long?,size:Long?,goodscat:String?,goodsname:String?):Any?{
+
+
+        val datas=libraryOfGoodsService.selectPage(page,size ,goodscat ?:"",goodsname?:"")
+        m.set("goodscat",goodscat?:"")
+        m.set("goodsname",goodsname?:"")
+        m.set("datas", datas)
+         return "$BasePath/goods"
     }
 
     /**

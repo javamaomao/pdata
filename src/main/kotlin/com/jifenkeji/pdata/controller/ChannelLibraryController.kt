@@ -44,7 +44,17 @@ class ChannelLibraryController {
         val datas = channelLibraryService.page(Page<ChannelLibrary>(page ?: 1, size ?: 10), null)
 
         m.set("datas", datas)
-        return "$BasePath/list"
+        return "$BasePath/channel"
+    }
+
+    @GetMapping("search")
+    fun search(m:Model,page:Long?,size:Long?,cname:String?,ctype:String?):Any{
+        val data=channelLibraryService.search(page,size,cname?:"",ctype?:"")
+        m.set("cname",cname?:"")
+        m.set("ctype",ctype?:"")
+        m.set("datas",data)
+        return "$BasePath/channel"
+
     }
 
     /**

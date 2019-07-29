@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>私域数据 | </title>
+
+    <!-- Bootstrap -->
+    <link href="/assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="/assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="/assets/css/custom.min.css" rel="stylesheet">
+
+</head>
+
+<body class="nav-md" style="width: 1700px">
+<div class="container body">
+    <div class="main_container">
+        <div th:replace="common::left_col"></div>
+
+        <!-- top navigation -->
+        <div th:replace="common::top_nav"></div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>系统设置页面
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>触点库管理
+                                </h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <table class="table" style="width: 1370px" >
+                                    <tr>
+                                       <div class="pull-left">
+                                            <div>
+                                                <button type="submit" class="btn btn-primary " id="btn-add-admin">新增</button>
+                                            </div>
+                                        </div>
+                                        <div class="title_right" style="width: 1300px">
+                                            <div class="col-md-5 col-sm-5 col-xs-15  pull-right top_search">
+                                                <form action="search" method="get" >
+                                                    <div class="form-group">
+                                                        <div class="col-lg-5">
+                                                        </div>
+                                                        <div class="col-lg-5">
+                                                            <input type="text" class="form-control" placeholder="请输入触点名称"  name="name"  id="name" th:value="${name}">
+                                                        </div>
+                                                        <div>
+                                                            <button type="submit" class="btn btn-primary ">搜索</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </tr>
+
+                                    <thead>
+                                    <tr style="background-color:#4B0082">
+                                        <th ></th>
+                                        <th style="color:white;text-align:center;"  >触点</th>
+                                        <th style="color:white;text-align:center;" >操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="item: ${datas.records}" th:data-id="*{item.id}">
+                                        <td  ></td>
+                                        <td width="50%"  style="word-break:break-all;text-align:center;color:black;font-size:15px;" th:text="*{item.offerName}" >*</td>
+                                        <td  style="text-align:center;" >
+                                            <button class="btn btn-danger btn-delete-item">删除</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="7" align="right">
+                                            <div >
+                                                <div >
+                                                    <div th:if="${ datas.pages>0}">
+                                                        <a class="btn btn-default" type="button" th:href="${'?page='+(datas.current-1)+'&name='+name}" th:disabled="${datas.current==1}">&laquo;上一页</a>
+                                                        <a class="btn btn-default" type="button" th:if="${datas.current<2 && datas.pages>3 }" th:each="i: ${#numbers.sequence(1,4)}" th:classappend="${datas.current==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()+'&words='+words}">1</a>
+                                                        <a class="btn btn-default" type="button" th:if="${datas.current>=datas.pages-2 && datas.pages>3 }" th:each="i: ${#numbers.sequence(datas.pages-3,datas.pages)}" th:classappend="${datas.current==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()+'&name='+name}">1</a>
+                                                        <a class="btn btn-default" type="button" th:if="${datas.current<datas.pages-2 && datas.current>1 && datas.pages>3 }" th:each="i: ${#numbers.sequence(datas.current-1,datas.current+2)}" th:classappend="${datas.current==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()+'&name='+name}">1</a>
+                                                        <a class="btn btn-default" type="button" th:if="${datas.pages<4}"  th:each="i: ${#numbers.sequence(1,datas.pages)}" th:classappend="${datas.current==i?'btn-danger':'btn-default'}" th:text="*{i}" th:href="${'?page='+i.toString()+'&name='+name}">*</a>
+                                                        <a class="btn btn-default" type="button" th:href="${'?page='+(datas.current+1).toString()+'&name='+name}"   th:disabled="${datas.current==datas.pages}" >下一页&raquo;</a>
+
+                                                        <div class="btn-group ">
+                                                            <form method="get" action="search">
+                                                                <div  class="btn-group col-lg-12" >
+                                                                    <a th:text="${'共'+ datas.pages+'页，前往第'}"/>
+                                                                    <input  type="text" id="page" name="page" style="width:20px;">页
+                                                                    <input type="hidden" id="name" name="name" th:value="${name}">
+                                                                    <input type="submit" style="width:40px;" value="确定"/>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer th:replace="common::footer"></footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- Large modal -->
+
+<div class="modal fade" id="add-admin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="add-form" data-parsley-validate class="form-horizontal form-label-left">
+                <input type="hidden" id="id" name="id"/>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">增加触点</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="offerName">触点名 <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="offerName" name="offerName" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button class="btn btn-primary" type="reset">重置</button>
+                    <button type="button" class="btn btn-success" id="btn-add-admin-submit">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="/assets/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="/assets/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="/assets/vendors/nprogress/nprogress.js"></script>
+<!-- iCheck -->
+<script src="/assets/vendors/iCheck/icheck.min.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="/assets/js/custom.min.js"></script>
+<script src="https://cdn.bootcss.com/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        const $addAdminModal = $('#add-admin-modal');
+        // 增加管理员信息
+        $("#btn-add-admin").click(function(){
+            $addAdminModal.data("edit_mode", false);
+            $addAdminModal.modal();
+        });
+        // 提交表单
+        $("#btn-add-admin-submit").click(function () {
+            const formData = $('#add-form').serialize();
+
+            const url = $addAdminModal.data("url");
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: url,
+                data: formData,
+                success: function (result) {
+                    if (result.result === "ok") {
+                        $('#add-admin-modal').modal('hide');//隐藏modal
+                        location.reload();
+                    } else {
+                        alert("数据保存失败," + result.msg)
+                    }
+                },
+                error: function(data) {
+                    alert("error:"+data.responseText);
+                }
+            });
+        });
+
+        // 修改管理员信息
+        $(".btn-modify-item").click(function () {
+            $id = $(this).closest('tr').attr("data-id");
+            $.get({dataType: "json",
+                url: "get?id=" + $id,
+                success: function(result){
+                    if (result == null) {
+                        alert("失败了");
+                    } else {
+                        //  alert(JSON.stringify(result));
+                        $addAdminModal.data("edit_mode", true);
+                        $addAdminModal.modal({show: true}, result);
+                    }
+                },
+                error: function(data){
+
+                }
+            })
+        });
+
+        // 绑定弹框显示事件
+        $addAdminModal.on('show.bs.modal', function (event) {
+            $editMode = $('#add-admin-modal').data("edit_mode");
+            if ($editMode === true) {
+                $addAdminModal.data("url", "edit_save");
+                $addAdminModal.find(".modal-title").text("修改角色");
+                const target = event.relatedTarget; //触发事件的对象
+                const modal = $(this);  //当前模态框
+                modal.find('#id').val(target.id);
+                modal.find('#offerName').val(target.offerName);
+            } else {
+                $addAdminModal.data("url", "add_save");
+                $addAdminModal.find(".modal-title").text("增加");
+                const modal = $(this);  //当前模态框
+            }
+
+
+        });
+
+        // 删除管理员信息
+        $(".btn-delete-item").click(function () {
+            swal("您确实要删除吗?", {
+                icon: "warning",
+                dangerMode: true,
+                buttons: ["取消", "确认"],
+            })
+                .then( (value) => {
+                if (value === true) {
+                $id = $(this).closest('tr').attr("data-id");
+                location.href="/contact-library/del?id=" + $id;
+            }
+        })
+            ;
+        });
+
+
+    });
+
+</script>
+</body>
+</html>
