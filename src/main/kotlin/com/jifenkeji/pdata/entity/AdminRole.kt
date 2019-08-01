@@ -16,15 +16,18 @@ class AdminRole  : Serializable{
     @TableId(value = "id",type = IdType.AUTO)
     var id: Int? = null
 
-    var roleId: Int? = null
+   // var roleId: Int? = null
 
     var roleName: String? = null
 
     var roleAuth: String? = null
 
+    var roleStatus:Int ?=1
+
     override fun toString(): String {
-        return "AdminRole(id=$id, roleId=$roleId, roleName=$roleName, roleAuth=$roleAuth)"
+        return "AdminRole(id=$id, roleName=$roleName, roleAuth=$roleAuth, roleStatus=$roleStatus)"
     }
+
 
 
 }

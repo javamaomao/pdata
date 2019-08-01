@@ -42,7 +42,6 @@ dependencies {
     implementation("com.baomidou:mybatis-plus-generator:3.1.2")
     //implementation("org.freemarker:freemarker:2.3.28")
     //implementation("p6spy:p6spy:1")
-
     //swagger
 }
 
@@ -70,3 +69,5 @@ this.tasks.create(name= "helloTask2"){
     description = "task learn"
     println("this is helloTask2")
 }
+
+

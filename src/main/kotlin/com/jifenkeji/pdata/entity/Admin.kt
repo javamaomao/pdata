@@ -19,6 +19,7 @@ class Admin : UserDetails {
     companion object {
 
         private const val serialVersionUID = 2322301147368384299L
+
     }
 
     override fun getAuthorities(): ArrayList<GrantedAuthority>? {

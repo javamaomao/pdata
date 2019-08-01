@@ -38,9 +38,11 @@ open class AdminServiceImpl : ServiceImpl<AdminMapper, Admin>(), IAdminService {
 
     override fun findRolesByAdminId(username: String): List<String>? {
          val admin=baseMapper.selectOne(QueryWrapper<Admin>().apply{eq("user_id",username)})
-        val adminRole=adminRoleMapper.selectOne(QueryWrapper<AdminRole>().apply{eq("role_id",admin.groupId)})
+        val adminRole=adminRoleMapper.selectOne(QueryWrapper<AdminRole>().apply{eq("id",admin.groupId)})
         val list =adminRole.roleAuth?.split(',')
         return list
+
+        //
     }
 
 
